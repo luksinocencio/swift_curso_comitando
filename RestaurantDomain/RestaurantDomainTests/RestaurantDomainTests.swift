@@ -86,6 +86,27 @@ final class RestaurantDomainTests: XCTestCase {
         wait(for: [exp], timeout: 1.0)
         XCTAssertEqual(returnResult, .success([model1, model2]))
     }
+    
+    func test_load_and_returned_error_for_invalid_statusCode() throws {
+        let (sut, client, _) = makeSUT()
+        let exp = expectation(description: "esperando retorno da closure")
+        var returnResult: RemoteRestaurantLoader.RemoteRestaurantResult?
+        
+        sut.load { result in
+            returnResult = result
+            exp.fulfill()
+        }
+        let (_, json1) = makeItem()
+        let (_, json2) = makeItem()
+        
+        let jsonItem = ["items": [json1, json2]]
+        
+        let data = try XCTUnwrap(JSONSerialization.data(withJSONObject: jsonItem))
+        
+        client.completionWithSuccess(statusCode: 201, data: data)
+        wait(for: [exp], timeout: 1.0)
+        XCTAssertEqual(returnResult, .failure(.invalidData))
+    }
 }
 
 extension RestaurantDomainTests {

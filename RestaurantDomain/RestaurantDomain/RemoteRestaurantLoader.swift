@@ -47,6 +47,7 @@ final class RemoteRestaurantLoader {
     
     let url: URL
     let networkClient: NetworkClient
+    private let okResponse: Int = 200
     
     init(url: URL, networkClient: NetworkClient) {
         self.url = url
@@ -54,10 +55,12 @@ final class RemoteRestaurantLoader {
     }
     
     func load(completion: @escaping (RemoteRestaurantLoader.RemoteRestaurantResult) -> Void)  {
+        let okResponse = okResponse
+        
         networkClient.request(from: url) { result in
             switch result {
-                case let .success((data, _)):
-                    guard let json = try? JSONDecoder().decode(RestaurantRoot.self, from: data) else {
+                case let .success((data, response)):
+                    guard let json = try? JSONDecoder().decode(RestaurantRoot.self, from: data), response.statusCode == okResponse else {
                         return completion(.failure(.invalidData))
                     }
                     completion(.success(json.items))
