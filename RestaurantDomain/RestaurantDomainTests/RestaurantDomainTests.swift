@@ -8,7 +8,6 @@ final class RestaurantDomainTests: XCTestCase {
         sut.load() { _ in }
         
         XCTAssertEqual(client.urlRequests, [anyURL])
-        
     }
     
     func test_load_twice() throws {
@@ -22,9 +21,8 @@ final class RestaurantDomainTests: XCTestCase {
     
     func test_load_and_returned_error_for_connectivity() throws {
         let (sut, client, _) = makeSUT()
-        
         let exp = expectation(description: "esperando retorno da closure")
-        var returnResult: RemoteRestaurantLoader.Error?
+        var returnResult: RemoteRestaurantLoader.RemoteRestaurantResult?
         
         sut.load { result in
             returnResult = result
@@ -35,14 +33,13 @@ final class RestaurantDomainTests: XCTestCase {
         
         wait(for: [exp], timeout: 1.0)
         
-        XCTAssertEqual(returnResult, .connectivity)
+        XCTAssertEqual(returnResult, .failure(.connectivity))
     }
     
     func test_load_and_returned_error_for_invalidData() throws {
         let (sut, client, _) = makeSUT()
-        
         let exp = expectation(description: "esperando retorno da closure")
-        var returnResult: RemoteRestaurantLoader.Error?
+        var returnResult: RemoteRestaurantLoader.RemoteRestaurantResult?
         
         sut.load { result in
             returnResult = result
@@ -50,10 +47,23 @@ final class RestaurantDomainTests: XCTestCase {
         }
         
         client.completionWithSuccess()
-        
         wait(for: [exp], timeout: 1.0)
+        XCTAssertEqual(returnResult, .failure(.invalidData))
+    }
+    
+    func test_load_and_returned_success_with_empty_list() {
+        let (sut, client, _) = makeSUT()
+        let exp = expectation(description: "esperando retorno da closure")
+        var returnResult: RemoteRestaurantLoader.RemoteRestaurantResult?
         
-        XCTAssertEqual(returnResult, .invalidData)
+        sut.load { result in
+            returnResult = result
+            exp.fulfill()
+        }
+        
+        client.completionWithSuccess(data: emptyData())
+        wait(for: [exp], timeout: 1.0)
+        XCTAssertEqual(returnResult, .success([]))
     }
 }
 
@@ -64,6 +74,10 @@ extension RestaurantDomainTests {
         let sut = RemoteRestaurantLoader(url: anyURL, networkClient: client)
         
         return (sut, client, anyURL)
+    }
+    
+    private func emptyData() -> Data {
+        return Data("{\"items\": []}".utf8)
     }
 }
 
