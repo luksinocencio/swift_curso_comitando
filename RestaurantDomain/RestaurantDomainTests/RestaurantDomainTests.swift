@@ -65,6 +65,27 @@ final class RestaurantDomainTests: XCTestCase {
         wait(for: [exp], timeout: 1.0)
         XCTAssertEqual(returnResult, .success([]))
     }
+    
+    func test_load_and_returned_success_with_restaurant_item_list() throws {
+        let (sut, client, _) = makeSUT()
+        let exp = expectation(description: "esperando retorno da closure")
+        var returnResult: RemoteRestaurantLoader.RemoteRestaurantResult?
+        
+        sut.load { result in
+            returnResult = result
+            exp.fulfill()
+        }
+        let (model1, json1) = makeItem()
+        let (model2, json2) = makeItem()
+        
+        let jsonItem = ["items": [json1, json2]]
+        
+        let data = try XCTUnwrap(JSONSerialization.data(withJSONObject: jsonItem))
+        
+        client.completionWithSuccess(data: data)
+        wait(for: [exp], timeout: 1.0)
+        XCTAssertEqual(returnResult, .success([model1, model2]))
+    }
 }
 
 extension RestaurantDomainTests {
@@ -78,6 +99,35 @@ extension RestaurantDomainTests {
     
     private func emptyData() -> Data {
         return Data("{\"items\": []}".utf8)
+    }
+    
+    private func makeItem(
+        id: UUID = UUID(),
+        name: String = "name",
+        location: String = "location",
+        distance: Float = 5.5,
+        ratings: Int = 4,
+        parasols: Int = 10
+    ) -> (model: RestaurantItem, json: [String: Any]) {
+        let item = RestaurantItem(
+            id: id,
+            name: name,
+            location: location,
+            distance: distance,
+            ratings: ratings,
+            parasols: parasols
+        )
+        
+        let itemJson: [String: Any] = [
+            "id": item.id.uuidString,
+            "name": item.name,
+            "location": item.location,
+            "distance": item.distance,
+            "ratings": item.ratings,
+            "parasols": item.parasols
+        ]
+        
+        return (item, itemJson)
     }
 }
 
