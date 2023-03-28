@@ -30,8 +30,8 @@ struct RestaurantItem {
 }
 
 protocol NetworkClient {
-    typealias NetworkState = Result<(Data, HTTPURLResponse), Error>
-    func request(from url: URL, completion: @escaping (NetworkState) -> Void)
+    typealias NetworkResult = Result<(Data, HTTPURLResponse), Error>
+    func request(from url: URL, completion: @escaping (NetworkResult) -> Void)
 }
 
 final class RemoteRestaurantLoader {

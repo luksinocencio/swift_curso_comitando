@@ -69,9 +69,9 @@ extension RestaurantDomainTests {
 
 final class NetworkClientSpy: NetworkClient {
     private(set) var urlRequests: [URL] = []
-    private var completionHandler: ((NetworkState) -> Void)?
+    private var completionHandler: ((NetworkResult) -> Void)?
     
-    func request(from url: URL, completion: @escaping (NetworkState) -> Void) {
+    func request(from url: URL, completion: @escaping (NetworkResult) -> Void) {
         urlRequests.append(url)
         completionHandler = completion
     }
