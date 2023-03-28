@@ -12,20 +12,25 @@
  5. O sistema entrega uma lista de restaurantes.
  
  #### Dados inválidos - caminho triste:
- 1. O sistema entrega um erro.
+ ✅ 1. O sistema entrega um erro.
  
  #### Sem conectividade - caminho triste:
- 1. O sistema entrega um erro. ✅
+ ✅ 1. O sistema entrega um erro.
  */
 
 import Foundation
 
-enum NetworkState {
-    case success
-    case error(Error)
+struct RestaurantItem {
+    let id: UUID
+    let name: String
+    let location: String
+    let distance: String
+    let ratings: Int
+    let parasols: Int
 }
 
 protocol NetworkClient {
+    typealias NetworkState = Result<(Data, HTTPURLResponse), Error>
     func request(from url: URL, completion: @escaping (NetworkState) -> Void)
 }
 
@@ -44,10 +49,10 @@ final class RemoteRestaurantLoader {
     }
     
     func load(completion: @escaping (RemoteRestaurantLoader.Error) -> Void)  {
-        networkClient.request(from: url) { state in
-            switch state {
+        networkClient.request(from: url) { result in
+            switch result {
                 case .success: completion(.invalidData)
-                case .error: completion(.connectivity)
+                case .failure: completion(.connectivity)
             }
         }
     }

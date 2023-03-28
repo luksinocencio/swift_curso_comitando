@@ -55,7 +55,9 @@ final class RestaurantDomainTests: XCTestCase {
         
         XCTAssertEqual(returnResult, .invalidData)
     }
-    
+}
+
+extension RestaurantDomainTests {
     private func makeSUT()  -> (RemoteRestaurantLoader, client: NetworkClientSpy, anyURL: URL) {
         let anyURL = URL(string: "https://comitando.com.br")!
         let client = NetworkClientSpy()
@@ -75,11 +77,12 @@ final class NetworkClientSpy: NetworkClient {
     }
     
     func completionWithError() {
-        completionHandler?(.error(anyError()))
+        completionHandler?(.failure(anyError()))
     }
     
-    func completionWithSuccess() {
-        completionHandler?(.success)
+    func completionWithSuccess(statusCode: Int = 200, data: Data = Data()) {
+        let response = HTTPURLResponse(url: urlRequests[0], statusCode: statusCode, httpVersion: nil, headerFields: nil)!
+        completionHandler?(.success(( data, response )))
     }
     
     func anyError() -> Error {
