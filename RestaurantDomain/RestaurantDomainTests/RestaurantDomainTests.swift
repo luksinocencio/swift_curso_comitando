@@ -2,8 +2,8 @@ import XCTest
 @testable import RestaurantDomain
 
 final class RestaurantDomainTests: XCTestCase {
-    func test_initializer_remoteRestaurantLoader_and_validate_urlRequest() throws {
-        let (sut, client, anyURL) = makeSUT()
+    func test_initializer_remoteRestaurantLoader_and_validate_urlRequest(file: StaticString = #file, line: UInt = #line) throws {
+        let (sut, client, anyURL) = makeSUT(file: file, line: line)
         
         sut.load() { _ in }
         
@@ -107,13 +107,31 @@ final class RestaurantDomainTests: XCTestCase {
         wait(for: [exp], timeout: 1.0)
         XCTAssertEqual(returnResult, .failure(.invalidData))
     }
+    
+    func test_load_not_returned_after_sut_deallocated() {
+        let anyURL = URL(string: "https://comitando.com.br")!
+        let client = NetworkClientSpy()
+        var sut: RemoteRestaurantLoader? = RemoteRestaurantLoader(url: anyURL, networkClient: client)
+        var returnedResult: RemoteRestaurantLoader.RemoteRestaurantResult?
+        
+        sut?.load(completion: { result in
+            returnedResult = result
+        })
+        
+        sut = nil
+        client.completionWithSuccess()
+        
+        XCTAssertNil(returnedResult)
+    }
 }
 
 extension RestaurantDomainTests {
-    private func makeSUT()  -> (RemoteRestaurantLoader, client: NetworkClientSpy, anyURL: URL) {
+    private func makeSUT(file: StaticString = #file, line: UInt = #line)  -> (RemoteRestaurantLoader, client: NetworkClientSpy, anyURL: URL) {
         let anyURL = URL(string: "https://comitando.com.br")!
         let client = NetworkClientSpy()
         let sut = RemoteRestaurantLoader(url: anyURL, networkClient: client)
+        trackForMemoryLeaks(client, file: file, line: line)
+        trackForMemoryLeaks(sut, file: file, line: line)
         
         return (sut, client, anyURL)
     }
@@ -149,6 +167,12 @@ extension RestaurantDomainTests {
         ]
         
         return (item, itemJson)
+    }
+    
+    func trackForMemoryLeaks(_ instance: AnyObject, file: StaticString = #file, line: UInt = #line) {
+        addTeardownBlock { [weak instance] in
+            XCTAssertNil(instance, "A instância deveria ter sido deslocada, possível vazamento de memória", file: file, line: line)
+        }
     }
 }
 
