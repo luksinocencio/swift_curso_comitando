@@ -36,6 +36,30 @@ final class NetworkServiceTests: XCTestCase {
         }
         wait(for: [exp], timeout: 1.0)
     }
+    
+    func test_loadRequest_and_completion_with_success() {
+        let url = URL(string: "https://comitando.com.br")!
+        let session = URLSessionSpy()
+        let task = URLSessionDataTaskSpy()
+        let sut = NetworkService(session: session)
+        
+        let data = Data()
+        let response = HTTPURLResponse(url: url, statusCode: 200, httpVersion: nil, headerFields: nil)
+        session.stub(url: url, task: task, data: data, response: response)
+        
+        let exp = expectation(description: "aguardando retorno da clousure")
+        sut.request(from: url) { result in
+            switch result {
+                case let .success((returnedData, returnedResponse)):
+                    XCTAssertEqual(returnedData, data)
+                    XCTAssertEqual(returnedResponse, response)
+                default:
+                    XCTFail("Esperado sucesso, porem retornou \(result)")
+            }
+            exp.fulfill()
+        }
+        wait(for: [exp], timeout: 1.0)
+    }
 }
 
 final class URLSessionSpy: URLSession {
@@ -44,15 +68,17 @@ final class URLSessionSpy: URLSession {
     struct Stub {
         let task: URLSessionDataTask
         let error: Error?
+        let data: Data?
+        let response: HTTPURLResponse?
     }
     
-    func stub(url: URL, task: URLSessionDataTask, error: Error? = nil) {
-        stubs[url] = Stub(task: task, error: error)
+    func stub(url: URL, task: URLSessionDataTask, error: Error? = nil, data: Data? = nil, response: HTTPURLResponse? = nil) {
+        stubs[url] = Stub(task: task, error: error, data: data, response: response)
     }
     
     override func dataTask(with url: URL, completionHandler: @escaping (Data?, URLResponse?, Error?) -> Void) -> URLSessionDataTask {
         guard let stub = stubs[url] else { return URLSessionDataTaskSpy() }
-        completionHandler(nil, nil, stub.error)
+        completionHandler(stub.data, stub.response, stub.error)
         return stub.task
     }
 }
