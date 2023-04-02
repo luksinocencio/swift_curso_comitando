@@ -3,10 +3,9 @@ import XCTest
 
 final class NetworkServiceTests: XCTestCase {
     func test_loadRequest_resume_dataTask_with_url() {
+        let (sut, session) = makeSUT()
         let url = URL(string: "https://comitando.com.br")!
-        let session = URLSessionSpy()
         let task = URLSessionDataTaskSpy()
-        let sut = NetworkService(session: session)
         
         session.stub(url: url, task: task)
         sut.request(from: url) { _ in }
@@ -15,10 +14,9 @@ final class NetworkServiceTests: XCTestCase {
     }
     
     func test_loadRequest_and_completion_with_error() {
+        let (sut, session) = makeSUT()
         let url = URL(string: "https://comitando.com.br")!
-        let session = URLSessionSpy()
         let task = URLSessionDataTaskSpy()
-        let sut = NetworkService(session: session)
         
         let anyError = NSError(domain: "any Error", code: -1)
         session.stub(url: url, task: task, error: anyError)
@@ -38,10 +36,9 @@ final class NetworkServiceTests: XCTestCase {
     }
     
     func test_loadRequest_and_completion_with_success() {
+        let (sut, session) = makeSUT()
         let url = URL(string: "https://comitando.com.br")!
-        let session = URLSessionSpy()
         let task = URLSessionDataTaskSpy()
-        let sut = NetworkService(session: session)
         
         let data = Data()
         let response = HTTPURLResponse(url: url, statusCode: 200, httpVersion: nil, headerFields: nil)
@@ -59,6 +56,25 @@ final class NetworkServiceTests: XCTestCase {
             exp.fulfill()
         }
         wait(for: [exp], timeout: 1.0)
+    }
+    
+    
+}
+
+extension NetworkServiceTests {
+    private func makeSUT(file: StaticString = #filePath, line: UInt = #line) -> (sut: NetworkClient, session: URLSessionSpy) {
+        let session = URLSessionSpy()
+        let sut = NetworkService(session: session)
+        trackForMemoryLeaks(session)
+        trackForMemoryLeaks(sut)
+        
+        return (sut, session)
+    }
+    
+    func trackForMemoryLeaks(_ instance: AnyObject, file: StaticString = #file, line: UInt = #line) {
+        addTeardownBlock { [weak instance] in
+            XCTAssertNil(instance, "A instância deveria ter sido deslocada, possível vazamento de memória", file: file, line: line)
+        }
     }
 }
 
