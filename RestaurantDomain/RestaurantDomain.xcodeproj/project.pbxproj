@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		E828DAF329D60FAD00ECEF14 /* NetworkServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E828DAF229D60FAD00ECEF14 /* NetworkServiceTests.swift */; };
+		E84D2C6C29DCB27800E07D3D /* URLSessionSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = E84D2C6B29DCB27800E07D3D /* URLSessionSpy.swift */; };
+		E84D2C6E29DCB2B500E07D3D /* XCTestCase+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = E84D2C6D29DCB2B500E07D3D /* XCTestCase+Helpers.swift */; };
 		E863A75829D4EF24004BDB71 /* NetworkClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = E863A75729D4EF24004BDB71 /* NetworkClient.swift */; };
 		E863A75A29D4EF7C004BDB71 /* RestaurantItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = E863A75929D4EF7C004BDB71 /* RestaurantItem.swift */; };
 		E863A75C29D4EFCA004BDB71 /* NetworkClientSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = E863A75B29D4EFCA004BDB71 /* NetworkClientSpy.swift */; };
@@ -29,6 +31,8 @@
 
 /* Begin PBXFileReference section */
 		E828DAF229D60FAD00ECEF14 /* NetworkServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkServiceTests.swift; sourceTree = "<group>"; };
+		E84D2C6B29DCB27800E07D3D /* URLSessionSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionSpy.swift; sourceTree = "<group>"; };
+		E84D2C6D29DCB2B500E07D3D /* XCTestCase+Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "XCTestCase+Helpers.swift"; sourceTree = "<group>"; };
 		E863A75729D4EF24004BDB71 /* NetworkClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkClient.swift; sourceTree = "<group>"; };
 		E863A75929D4EF7C004BDB71 /* RestaurantItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantItem.swift; sourceTree = "<group>"; };
 		E863A75B29D4EFCA004BDB71 /* NetworkClientSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkClientSpy.swift; sourceTree = "<group>"; };
@@ -93,6 +97,8 @@
 				E8E04E2729D32F1100E532B5 /* RestaurantDomainTests.swift */,
 				E863A75B29D4EFCA004BDB71 /* NetworkClientSpy.swift */,
 				E828DAF229D60FAD00ECEF14 /* NetworkServiceTests.swift */,
+				E84D2C6B29DCB27800E07D3D /* URLSessionSpy.swift */,
+				E84D2C6D29DCB2B500E07D3D /* XCTestCase+Helpers.swift */,
 			);
 			path = RestaurantDomainTests;
 			sourceTree = "<group>";
@@ -217,7 +223,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E84D2C6E29DCB2B500E07D3D /* XCTestCase+Helpers.swift in Sources */,
 				E863A75C29D4EFCA004BDB71 /* NetworkClientSpy.swift in Sources */,
+				E84D2C6C29DCB27800E07D3D /* URLSessionSpy.swift in Sources */,
 				E828DAF329D60FAD00ECEF14 /* NetworkServiceTests.swift in Sources */,
 				E8E04E2829D32F1100E532B5 /* RestaurantDomainTests.swift in Sources */,
 			);

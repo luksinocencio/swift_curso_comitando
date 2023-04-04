@@ -60,12 +60,6 @@ extension NetworkServiceTests {
         return (sut, session)
     }
     
-    func trackForMemoryLeaks(_ instance: AnyObject, file: StaticString = #file, line: UInt = #line) {
-        addTeardownBlock { [weak instance] in
-            XCTAssertNil(instance, "A instância deveria ter sido deslocada, possível vazamento de memória", file: file, line: line)
-        }
-    }
-    
     private func resultErrorForInvalidCases(
         data: Data?,
         response: URLResponse?,
@@ -104,7 +98,6 @@ extension NetworkServiceTests {
         return nil
     }
     
-    
     private func assert(
         data: Data?,
         response: URLResponse?,
@@ -128,27 +121,6 @@ extension NetworkServiceTests {
         wait(for: [exp], timeout: 1.0)
         
         return returnedResult
-    }
-}
-
-final class URLSessionSpy: URLSession {
-    private(set) var stubs: [URL: Stub] = [:]
-    
-    struct Stub {
-        let task: URLSessionDataTask
-        let error: Error?
-        let data: Data?
-        let response: URLResponse?
-    }
-    
-    func stub(url: URL, task: URLSessionDataTask, error: Error? = nil, data: Data? = nil, response: URLResponse? = nil) {
-        stubs[url] = Stub(task: task, error: error, data: data, response: response)
-    }
-    
-    override func dataTask(with url: URL, completionHandler: @escaping (Data?, URLResponse?, Error?) -> Void) -> URLSessionDataTask {
-        guard let stub = stubs[url] else { return URLSessionDataTaskSpy() }
-        completionHandler(stub.data, stub.response, stub.error)
-        return stub.task
     }
 }
 
