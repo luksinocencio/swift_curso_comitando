@@ -7,26 +7,25 @@ final class LocalRestaurantLoaderTests: XCTestCase {
         let items = [RestaurantItem(id: UUID(), name: "any_name", location: "any_location", distance: 5.5, ratings: 0, parasols: 0)]
         
         sut.save(items) { _ in }
-        
-        XCTAssertEqual(cache.deleteCount, 1)
+
+        XCTAssertEqual(cache.methodsCalled, [.delete])
     }
     
     func test_save_insert_new_data_on_cache() {
+        let currentDate: Date = Date()
         let (sut, cache) = makeSUT()
         let items = [RestaurantItem(id: UUID(), name: "any_name", location: "any_location", distance: 5.5, ratings: 0, parasols: 0)]
-        
+    
         sut.save(items) { _ in }
         
         cache.completionHandlerForDelete(nil)
         
-        XCTAssertEqual(cache.deleteCount, 1)
-        XCTAssertEqual(cache.saveCount, 1)
+        XCTAssertEqual(cache.methodsCalled, [.delete, .save(items: items, timestamp: currentDate)])
     }
 }
 
 extension LocalRestaurantLoaderTests {
-    private func makeSUT() -> (sut: LocalRestaurantLoader, cache: CacheClientSpy) {
-        let currentDate = Date()
+    private func makeSUT(currentDate: Date = Date(), file: StaticString = #file, line: UInt = #line) -> (sut: LocalRestaurantLoader, cache: CacheClientSpy) {
         let cache = CacheClientSpy()
         let sut = LocalRestaurantLoader(cache: cache, currentDate: { currentDate })
         
@@ -38,17 +37,20 @@ extension LocalRestaurantLoaderTests {
 }
 
 final class CacheClientSpy: CacheClient {
-    private (set) var saveCount = 0
-    
-    func save(_ items: [RestaurantDomain.RestaurantItem], timestamp: Date, completion: @escaping (Error?) -> Void) {
-        saveCount += 1
+    enum Methods: Equatable {
+        case delete
+        case save(items: [RestaurantItem], timestamp: Date)
     }
     
-    private (set) var deleteCount = 0
+    private (set) var methodsCalled = [Methods]()
     private var completionHanlder: ((Error?) -> Void)?
     
+    func save(_ items: [RestaurantDomain.RestaurantItem], timestamp: Date, completion: @escaping (Error?) -> Void) {
+        methodsCalled.append(.save(items: items, timestamp: timestamp))
+    }
+    
     func delete(completion: @escaping (Error?) -> Void) {
-        deleteCount += 1
+        methodsCalled.append(.delete)
         completionHanlder = completion
     }
     
