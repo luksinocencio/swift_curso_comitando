@@ -3,9 +3,7 @@ import XCTest
 
 final class LocalRestaurantLoaderTests: XCTestCase {
     func test_save_deletes_olds_cache() {
-        let currentDate = Date()
-        let cache = CacheClientSpy()
-        let sut = LocalRestaurantLoader(cache: cache, currentDate: { currentDate })
+        let (sut, cache) = makeSUT()
         let items = [RestaurantItem(id: UUID(), name: "any_name", location: "any_location", distance: 5.5, ratings: 0, parasols: 0)]
         
         sut.save(items) { _ in }
@@ -14,9 +12,7 @@ final class LocalRestaurantLoaderTests: XCTestCase {
     }
     
     func test_save_insert_new_data_on_cache() {
-        let currentDate = Date()
-        let cache = CacheClientSpy()
-        let sut = LocalRestaurantLoader(cache: cache, currentDate: { currentDate })
+        let (sut, cache) = makeSUT()
         let items = [RestaurantItem(id: UUID(), name: "any_name", location: "any_location", distance: 5.5, ratings: 0, parasols: 0)]
         
         sut.save(items) { _ in }
@@ -25,6 +21,19 @@ final class LocalRestaurantLoaderTests: XCTestCase {
         
         XCTAssertEqual(cache.deleteCount, 1)
         XCTAssertEqual(cache.saveCount, 1)
+    }
+}
+
+extension LocalRestaurantLoaderTests {
+    private func makeSUT() -> (sut: LocalRestaurantLoader, cache: CacheClientSpy) {
+        let currentDate = Date()
+        let cache = CacheClientSpy()
+        let sut = LocalRestaurantLoader(cache: cache, currentDate: { currentDate })
+        
+        trackForMemoryLeaks(cache)
+        trackForMemoryLeaks(sut)
+        
+        return (sut, cache)
     }
 }
 
