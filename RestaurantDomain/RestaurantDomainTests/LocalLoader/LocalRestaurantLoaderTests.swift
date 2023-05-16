@@ -49,6 +49,19 @@ final class LocalRestaurantLoaderTests: XCTestCase {
             cache.completionHandlerForInsert(nil)
         }
     }
+    
+    func test_save_non_insert_after_sut_deallocated() {
+        let cache = CacheClientSpy()
+        let currentDate: Date = Date()
+        var sut: LocalRestaurantLoader? = LocalRestaurantLoader(cache: cache, currentDate: { currentDate })
+        let items = [makeItem()]
+        
+        
+        sut?.save(items, completion: { _ in })
+        sut = nil
+        
+        cache.completionHandlerForDelete(nil)
+    }
 }
 
 extension LocalRestaurantLoaderTests {
