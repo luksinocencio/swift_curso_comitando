@@ -13,7 +13,7 @@ final class LocalRestaurantLoaderTests: XCTestCase {
     
     func test_save_insert_new_data_on_cache() {
         let currentDate: Date = Date()
-        let (sut, cache) = makeSUT()
+        let (sut, cache) = makeSUT(currentDate: currentDate)
         let items = [makeItem()]
     
         sut.save(items) { _ in }
@@ -24,34 +24,30 @@ final class LocalRestaurantLoaderTests: XCTestCase {
     
     func test_save_fails_after_delete_old_cache() {
         let (sut, cache) = makeSUT()
-        let items = [makeItem()]
-        
-        var returnedError: Error?
-        sut.save(items) { error in
-            returnedError = error
-        }
         
         let anyError = NSError(domain: "any error", code: -1)
-        cache.completionHandlerForDelete(anyError)
-        
-        XCTAssertNotNil(returnedError)
-        XCTAssertEqual(returnedError as? NSError, anyError)
+        assert(sut, completion: anyError) {
+            cache.completionHandlerForDelete(anyError)
+        }
     }
     
     func test_save_fails_after_insert_new_data_cache() {
         let (sut, cache) = makeSUT()
-        let items = [makeItem()]
-        
-        var returnedError: Error?
-        sut.save(items) { error in
-            returnedError = error
-        }
         
         let anyError = NSError(domain: "any error", code: -1)
-        cache.completionHandlerForDelete(nil)
-        cache.completionHandlerForInsert(anyError)
+        assert(sut, completion: anyError) {
+            cache.completionHandlerForDelete(nil)
+            cache.completionHandlerForInsert(anyError)
+        }
+    }
+    
+    func test_save_success_after_insert_new_data_cache() {
+        let (sut, cache) = makeSUT()
         
-        XCTAssertEqual(returnedError as? NSError, anyError)
+        assert(sut, completion: nil) {
+            cache.completionHandlerForDelete(nil)
+            cache.completionHandlerForInsert(nil)
+        }
     }
 }
 
@@ -68,6 +64,25 @@ extension LocalRestaurantLoaderTests {
     
     private func makeItem() -> RestaurantItem {
         RestaurantItem(id: UUID(), name: "any_name", location: "any_location", distance: 5.5, ratings: 0, parasols: 0)
+    }
+    
+    private func assert(
+        _ sut: LocalRestaurantLoader,
+        completion error: NSError?,
+        when action: () -> Void,
+        file: StaticString = #file,
+        line: UInt = #line
+    ) {
+        let items = [makeItem()]
+        var returnedError: Error?
+       
+        sut.save(items) { error in
+            returnedError = error
+        }
+        
+        action()
+        
+        XCTAssertEqual(returnedError as? NSError, error)
     }
 }
 
