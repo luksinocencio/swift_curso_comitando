@@ -1,8 +1,10 @@
 import Foundation
 
 protocol CacheClient {
-    func save(_ items: [RestaurantItem], timestamp: Date, completion: @escaping(Error?) -> Void)
-    func delete(completion: @escaping (Error?) -> Void)
+    typealias SaveResult = (Error?) -> Void
+    typealias DeleteResult = (Error?) -> Void
+    func save(_ items: [RestaurantItem], timestamp: Date, completion: @escaping SaveResult)
+    func delete(completion: @escaping DeleteResult)
 }
 
 final class LocalRestaurantLoader {
