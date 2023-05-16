@@ -87,7 +87,10 @@ final class RestaurantDomainTests: XCTestCase {
 }
 
 extension RestaurantDomainTests {
-    private func makeSUT(file: StaticString = #file, line: UInt = #line)  -> (RemoteRestaurantLoader, client: NetworkClientSpy, anyURL: URL) {
+    private func makeSUT(
+        file: StaticString = #file,
+        line: UInt = #line
+    ) -> (RemoteRestaurantLoader, client: NetworkClientSpy, anyURL: URL) {
         let anyURL = URL(string: "https://comitando.com.br")!
         let client = NetworkClientSpy()
         let sut = RemoteRestaurantLoader(url: anyURL, networkClient: client)

@@ -4,7 +4,7 @@ import XCTest
 final class LocalRestaurantLoaderTests: XCTestCase {
     func test_save_deletes_olds_cache() {
         let (sut, cache) = makeSUT()
-        let items = [RestaurantItem(id: UUID(), name: "any_name", location: "any_location", distance: 5.5, ratings: 0, parasols: 0)]
+        let items = [makeItem()]
         
         sut.save(items) { _ in }
 
@@ -14,13 +14,44 @@ final class LocalRestaurantLoaderTests: XCTestCase {
     func test_save_insert_new_data_on_cache() {
         let currentDate: Date = Date()
         let (sut, cache) = makeSUT()
-        let items = [RestaurantItem(id: UUID(), name: "any_name", location: "any_location", distance: 5.5, ratings: 0, parasols: 0)]
+        let items = [makeItem()]
     
         sut.save(items) { _ in }
-        
         cache.completionHandlerForDelete(nil)
         
         XCTAssertEqual(cache.methodsCalled, [.delete, .save(items: items, timestamp: currentDate)])
+    }
+    
+    func test_save_fails_after_delete_old_cache() {
+        let (sut, cache) = makeSUT()
+        let items = [makeItem()]
+        
+        var returnedError: Error?
+        sut.save(items) { error in
+            returnedError = error
+        }
+        
+        let anyError = NSError(domain: "any error", code: -1)
+        cache.completionHandlerForDelete(anyError)
+        
+        XCTAssertNotNil(returnedError)
+        XCTAssertEqual(returnedError as? NSError, anyError)
+    }
+    
+    func test_save_fails_after_insert_new_data_cache() {
+        let (sut, cache) = makeSUT()
+        let items = [makeItem()]
+        
+        var returnedError: Error?
+        sut.save(items) { error in
+            returnedError = error
+        }
+        
+        let anyError = NSError(domain: "any error", code: -1)
+        cache.completionHandlerForDelete(nil)
+        cache.completionHandlerForInsert(anyError)
+        
+        XCTAssertEqual(returnedError as? NSError, anyError)
     }
 }
 
@@ -34,6 +65,10 @@ extension LocalRestaurantLoaderTests {
         
         return (sut, cache)
     }
+    
+    private func makeItem() -> RestaurantItem {
+        RestaurantItem(id: UUID(), name: "any_name", location: "any_location", distance: 5.5, ratings: 0, parasols: 0)
+    }
 }
 
 final class CacheClientSpy: CacheClient {
@@ -43,18 +78,24 @@ final class CacheClientSpy: CacheClient {
     }
     
     private (set) var methodsCalled = [Methods]()
-    private var completionHanlder: ((Error?) -> Void)?
+    private var completionHanlderDelete: ((Error?) -> Void)?
+    private var completionHandlerInsert: ((Error?) -> Void)?
     
     func save(_ items: [RestaurantDomain.RestaurantItem], timestamp: Date, completion: @escaping (Error?) -> Void) {
         methodsCalled.append(.save(items: items, timestamp: timestamp))
+        completionHandlerInsert = completion
     }
     
     func delete(completion: @escaping (Error?) -> Void) {
         methodsCalled.append(.delete)
-        completionHanlder = completion
+        completionHanlderDelete = completion
     }
     
     func completionHandlerForDelete(_ error: Error?) {
-        completionHanlder?(error)
+        completionHanlderDelete?(error)
+    }
+    
+    func completionHandlerForInsert(_ error: Error?) {
+        completionHanlderDelete?(error)
     }
 }
