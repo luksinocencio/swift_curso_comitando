@@ -1,7 +1,7 @@
 import XCTest
 @testable import RestaurantDomain
 
-final class LocalRestaurantLoaderTests: XCTestCase {
+final class LocalRestaurantLoaderForSaveTests: XCTestCase {
     func test_save_deletes_olds_cache() {
         let (sut, cache) = makeSUT()
         let items = [makeItem()]
@@ -85,7 +85,7 @@ final class LocalRestaurantLoaderTests: XCTestCase {
     }
 }
 
-extension LocalRestaurantLoaderTests {
+extension LocalRestaurantLoaderForSaveTests {
     private func makeSUT(currentDate: Date = Date(), file: StaticString = #file, line: UInt = #line) -> (sut: LocalRestaurantLoader, cache: CacheClientSpy) {
         let cache = CacheClientSpy()
         let sut = LocalRestaurantLoader(cache: cache, currentDate: { currentDate })
@@ -138,6 +138,10 @@ final class CacheClientSpy: CacheClient {
     func delete(completion: @escaping CacheClient.DeleteResult) {
         methodsCalled.append(.delete)
         completionHanlderDelete = completion
+    }
+    
+    func load(completion: @escaping LoadResult) {
+        
     }
     
     func completionHandlerForDelete(_ error: Error?) {
