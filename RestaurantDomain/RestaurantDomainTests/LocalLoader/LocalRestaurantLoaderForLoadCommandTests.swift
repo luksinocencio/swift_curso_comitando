@@ -21,6 +21,30 @@ final class LocalRestaurantLoaderForLoadCommandTests: XCTestCase {
         
         XCTAssertEqual(cache.methodsCalled, [.load])
     }
+    
+    func test_load_returned_data_with_one_day_less_than_old_cache() {
+        let currentDate = Date()
+        let oneDayLessThanOlcCacheDate = currentDate.addind(days: -1).adding(seconds: 1)
+        
+        let (sut, cache) = makeSUT(currentDate: currentDate)
+        let items = [makeItem()]
+        
+        assert(sut, completion: .success(items)) {
+            cache.completionHandlerForLoad(.success(items: items, timestamp: oneDayLessThanOlcCacheDate))
+        }
+    }
+    
+    func test_load_returned_data_with_one_day_old_cache() {
+        let currentDate = Date()
+        let oneDayOldCacheDate = currentDate.addind(days: -1)
+        
+        let (sut, cache) = makeSUT(currentDate: currentDate)
+        let items = [makeItem()]
+        
+        assert(sut, completion: .success([])) {
+            cache.completionHandlerForLoad(.success(items: items, timestamp: oneDayOldCacheDate))
+        }
+    }
 }
 
 extension LocalRestaurantLoaderForLoadCommandTests {
@@ -55,5 +79,15 @@ extension LocalRestaurantLoaderForLoadCommandTests {
         action()
         
         XCTAssertEqual(returnedResult, result)
+    }
+}
+
+private extension Date {
+    func addind(days: Int) -> Date {
+        return Calendar(identifier: .gregorian).date(byAdding: .day, value: days, to: self)!
+    }
+    
+    func adding(seconds: TimeInterval) -> Date {
+        return self + seconds
     }
 }
