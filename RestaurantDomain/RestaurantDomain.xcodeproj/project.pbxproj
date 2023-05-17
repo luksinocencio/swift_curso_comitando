@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E81C1A0A2A1459D4001A6653 /* RestaurantLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = E81C1A092A1459D4001A6653 /* RestaurantLoader.swift */; };
 		E828DAF329D60FAD00ECEF14 /* NetworkServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E828DAF229D60FAD00ECEF14 /* NetworkServiceTests.swift */; };
 		E84D2C6C29DCB27800E07D3D /* URLSessionSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = E84D2C6B29DCB27800E07D3D /* URLSessionSpy.swift */; };
 		E84D2C6E29DCB2B500E07D3D /* XCTestCase+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = E84D2C6D29DCB2B500E07D3D /* XCTestCase+Helpers.swift */; };
@@ -32,6 +33,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		E81C1A092A1459D4001A6653 /* RestaurantLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantLoader.swift; sourceTree = "<group>"; };
 		E828DAF229D60FAD00ECEF14 /* NetworkServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkServiceTests.swift; sourceTree = "<group>"; };
 		E84D2C6B29DCB27800E07D3D /* URLSessionSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionSpy.swift; sourceTree = "<group>"; };
 		E84D2C6D29DCB2B500E07D3D /* XCTestCase+Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "XCTestCase+Helpers.swift"; sourceTree = "<group>"; };
@@ -127,6 +129,7 @@
 				E8ADCC1929EC3CAB00ABC1D1 /* RemoteLoader */,
 				E8E04E1D29D32F1000E532B5 /* RestaurantDomain.h */,
 				E863A75929D4EF7C004BDB71 /* RestaurantItem.swift */,
+				E81C1A092A1459D4001A6653 /* RestaurantLoader.swift */,
 			);
 			path = RestaurantDomain;
 			sourceTree = "<group>";
@@ -251,6 +254,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E81C1A0A2A1459D4001A6653 /* RestaurantLoader.swift in Sources */,
 				E8E04E3329D330BC00E532B5 /* RemoteRestaurantLoader.swift in Sources */,
 				E8ADCC1D29EC3D1C00ABC1D1 /* LocalRestaurantLoader.swift in Sources */,
 				E863A75A29D4EF7C004BDB71 /* RestaurantItem.swift in Sources */,
