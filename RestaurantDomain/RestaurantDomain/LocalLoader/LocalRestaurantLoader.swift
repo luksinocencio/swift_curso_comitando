@@ -55,10 +55,15 @@ extension LocalRestaurantLoader: RestaurantLoader {
         cache.load { [weak self] state in
             guard let self else { return }
             switch state {
-            case let .success(items, timestamp) where self.validate(timestamp): completion(.success(items))
-            case .success, .empty: completion(.success([]))
-            case .failure:
-                completion(.failure(.invalidData))
+                case let .success(items, timestamp) where self.validate(timestamp):
+                    completion(.success(items))
+                case .success:
+                    completion(.success([]))
+                case .empty:
+                    completion(.success([]))
+                case .failure:
+                    self.cache.delete { _ in }
+                    completion(.failure(.invalidData))
             }
         }
     }
