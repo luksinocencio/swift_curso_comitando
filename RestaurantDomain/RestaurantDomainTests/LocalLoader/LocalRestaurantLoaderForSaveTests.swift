@@ -96,10 +96,6 @@ extension LocalRestaurantLoaderForSaveTests {
         return (sut, cache)
     }
     
-    private func makeItem() -> RestaurantItem {
-        RestaurantItem(id: UUID(), name: "any_name", location: "any_location", distance: 5.5, ratings: 0, parasols: 0)
-    }
-    
     private func assert(
         _ sut: LocalRestaurantLoader,
         completion error: NSError?,

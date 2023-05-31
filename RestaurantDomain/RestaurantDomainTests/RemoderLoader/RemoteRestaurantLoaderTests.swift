@@ -1,7 +1,7 @@
 import XCTest
 import RestaurantDomain
 
-final class RestaurantDomainTests: XCTestCase {
+final class RemoteRestaurantLoaderTests: XCTestCase {
     func test_initializer_remoteRestaurantLoader_and_validate_urlRequest(file: StaticString = #file, line: UInt = #line) throws {
         let (sut, client, anyURL) = makeSUT(file: file, line: line)
         
@@ -46,8 +46,8 @@ final class RestaurantDomainTests: XCTestCase {
     func test_load_and_returned_success_with_restaurant_item_list() throws {
         let (sut, client, _) = makeSUT()
         
-        let item1 = makeItem()
-        let item2 = makeItem()
+        let item1 = makeRestaurantItem()
+        let item2 = makeRestaurantItem()
         
         assert(sut, completion: .success([item1.model, item2.model])) {
             let jsonItem = ["items": [item1.json, item2.json]]
@@ -60,8 +60,8 @@ final class RestaurantDomainTests: XCTestCase {
         let (sut, client, _) = makeSUT()
         
         assert(sut, completion: .failure(.invalidData)) {
-            let item1 = makeItem()
-            let item2 = makeItem()
+            let item1 = makeRestaurantItem()
+            let item2 = makeRestaurantItem()
             let jsonItem = ["items": [item1.json, item2.json]]
             
             let data = try! XCTUnwrap(JSONSerialization.data(withJSONObject: jsonItem))
@@ -86,7 +86,7 @@ final class RestaurantDomainTests: XCTestCase {
     }
 }
 
-extension RestaurantDomainTests {
+extension RemoteRestaurantLoaderTests {
     private func makeSUT(
         file: StaticString = #file,
         line: UInt = #line
@@ -104,7 +104,7 @@ extension RestaurantDomainTests {
         return Data("{\"items\": []}".utf8)
     }
     
-    private func makeItem(
+    private func makeRestaurantItem(
         id: UUID = UUID(),
         name: String = "name",
         location: String = "location",
