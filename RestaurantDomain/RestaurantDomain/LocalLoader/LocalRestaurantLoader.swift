@@ -1,5 +1,23 @@
 import Foundation
 
+protocol CachePolicy {
+    func validate(_ timestamp: Date, with currentData: Date) -> Bool
+}
+
+final class RestaurantLoaderCachePolicy: CachePolicy {
+    
+    private let maxAge: Int = 1
+    
+    public init() { }
+    
+    func validate(_ timestamp: Date, with currentData: Date) -> Bool {
+        let calendar = Calendar(identifier: .gregorian)
+        guard let maxAge = calendar.date(byAdding: .day, value: maxAge, to: timestamp) else { return false }
+        
+        return currentData < maxAge
+    }
+}
+
 public enum LoadResultState {
     case empty
     case success(items: [RestaurantItem], timestamp: Date)
@@ -18,10 +36,12 @@ protocol CacheClient {
 
 final class LocalRestaurantLoader {
     let cache: CacheClient
+    let cachePolicy: CachePolicy
     let currentDate: () -> Date
     
-    init(cache: CacheClient, currentDate: @escaping () -> Date) {
+    init(cache: CacheClient, cachePolicy: CachePolicy = RestaurantLoaderCachePolicy(), currentDate: @escaping () -> Date) {
         self.cache = cache
+        self.cachePolicy = cachePolicy
         self.currentDate = currentDate
     }
     
@@ -39,7 +59,7 @@ final class LocalRestaurantLoader {
         cache.load { [weak self] state in
             guard let self else { return }
             switch state {
-                case let .success(_, timestamp) where !self.validate(timestamp):
+                case let .success(_, timestamp) where !self.cachePolicy.validate(timestamp, with: currentDate()):
                     self.cache.delete { _ in  }
                 case .failure:
                     self.cache.delete { _ in  }
@@ -58,18 +78,11 @@ final class LocalRestaurantLoader {
 }
 
 extension LocalRestaurantLoader: RestaurantLoader {
-    func validate(_ timestamp: Date) -> Bool {
-        let calendar = Calendar(identifier: .gregorian)
-        guard let maxAge = calendar.date(byAdding: .day, value: 1, to: timestamp) else { return false }
-        
-        return currentDate() < maxAge
-    }
-    
     func load(completion: @escaping (Result<[RestaurantItem], RestaurantResultError>) -> Void) {
         cache.load { [weak self] state in
             guard let self else { return }
             switch state {
-                case let .success(items, timestamp) where self.validate(timestamp): completion(.success(items))
+                case let .success(items, timestamp) where self.cachePolicy.validate(timestamp, with: currentDate()): completion(.success(items))
                 case .success, .empty: completion(.success([]))
                 case .failure: completion(.failure(.invalidData))
             }
