@@ -1,10 +1,11 @@
 import UIKit
 
 class ViewController: UITableViewController {
-    
+    var restaurantItem: [RestaurantViewModel] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        refresh()
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -27,6 +28,20 @@ class ViewController: UITableViewController {
         }
         
         return cell
+    }
+    
+    @IBAction func refresh() {
+        refreshControl?.beginRefreshing()
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) { [weak self] in
+            guard let self, self.restaurantItem.isEmpty else {
+                self?.refreshControl?.endRefreshing()
+                return
+            }
+            
+            self.restaurantItem = RestaurantViewModel.dataModel
+            self.tableView.reloadData()
+            self.refreshControl?.endRefreshing()
+        }
     }
 }
 
