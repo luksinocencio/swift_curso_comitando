@@ -61,6 +61,15 @@ final class CacheServiceTests: XCTestCase {
         
         assert(sut, completion: .empty)
     }
+    
+    func test_delete_returned_error_when_not_permission() {
+        let managerURL = invalidManagerURL()
+        let sut = makeSUT(managerURL: managerURL)
+        
+        let returnedError = deleteCache(sut)
+        
+        XCTAssertNotNil(returnedError)
+    }
 }
 
 extension CacheServiceTests {
