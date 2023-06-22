@@ -102,6 +102,34 @@ final class CacheServiceTests: XCTestCase {
         
         assert(sut, completion: .failure(anyError))
     }
+    
+    func test_task_with_serial() {
+        let sut = makeSUT()
+        let items = [makeItem(), makeItem()]
+        let timestamp = Date()
+        var serialResult = [XCTestExpectation]()
+        
+        let task1 = expectation(description: "taks 1")
+        sut.save(items, timestamp: timestamp) { _ in
+            serialResult.append(task1)
+            task1.fulfill()
+        }
+        
+        let task2 = expectation(description: "taks 2")
+        sut.delete { _ in
+            serialResult.append(task2)
+            task2.fulfill()
+        }
+        
+        let task3 = expectation(description: "taks 3")
+        sut.save(items, timestamp: timestamp) { _ in
+            serialResult.append(task3)
+            task3.fulfill()
+        }
+        
+        waitForExpectations(timeout: 3.0)
+        XCTAssertEqual(serialResult, [task1, task2, task3])
+    }
 }
 
 extension CacheServiceTests {

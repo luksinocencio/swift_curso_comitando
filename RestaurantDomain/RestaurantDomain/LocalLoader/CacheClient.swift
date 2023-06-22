@@ -23,46 +23,53 @@ final class CacheService: CacheClient {
         let timestamp: Date
     }
     private let manegerURL: URL
+    private let callbackQueue = DispatchQueue(label: "\(CacheService.self).CallbackQueue", qos: .userInitiated)
     
     init(manegerURL: URL) {
         self.manegerURL = manegerURL
     }
     
     func save(_ items: [RestaurantItem], timestamp: Date, completion: @escaping SaveResult) {
-        do {
-            let cache = Cache(items: items, timestamp: timestamp)
-            let enconder = JSONEncoder()
-            let encodend = try enconder.encode(cache)
-            try encodend.write(to: manegerURL)
-            completion(nil)
-        } catch {
-            completion(error)
+        callbackQueue.async {
+            do {
+                let cache = Cache(items: items, timestamp: timestamp)
+                let enconder = JSONEncoder()
+                let encodend = try enconder.encode(cache)
+                try encodend.write(to: self.manegerURL)
+                completion(nil)
+            } catch {
+                completion(error)
+            }
         }
     }
     
     func delete(completion: @escaping DeleteResult) {
-        guard FileManager.default.fileExists(atPath: manegerURL.path) else {
-            return completion(nil)
-        }
-        do {
-            try FileManager.default.removeItem(at: manegerURL)
-            completion(nil)
-        } catch {
-            completion(error)
+        callbackQueue.async {
+            guard FileManager.default.fileExists(atPath: self.manegerURL.path) else {
+                return completion(nil)
+            }
+            do {
+                try FileManager.default.removeItem(at: self.manegerURL)
+                completion(nil)
+            } catch {
+                completion(error)
+            }
         }
     }
     
     func load(completion: @escaping LoadResult) {
-        guard let data = try? Data(contentsOf: manegerURL) else {
-            return completion(.empty)
-        }
-        
-        do {
-            let decoder = JSONDecoder()
-            let cache = try decoder.decode(Cache.self, from: data)
-            completion(.success(items: cache.items, timestamp: cache.timestamp))
-        } catch {
-            completion(.failure(error))
+        callbackQueue.async {
+            guard let data = try? Data(contentsOf: self.manegerURL) else {
+                return completion(.empty)
+            }
+            
+            do {
+                let decoder = JSONDecoder()
+                let cache = try decoder.decode(Cache.self, from: data)
+                completion(.success(items: cache.items, timestamp: cache.timestamp))
+            } catch {
+                completion(.failure(error))
+            }
         }
     }
 }
