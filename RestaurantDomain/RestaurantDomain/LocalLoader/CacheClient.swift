@@ -23,14 +23,18 @@ final class CacheService: CacheClient {
         let timestamp: Date
     }
     private let manegerURL: URL
-    private let callbackQueue = DispatchQueue(label: "\(CacheService.self).CallbackQueue", qos: .userInitiated)
+    private let callbackQueue = DispatchQueue(
+        label: "\(CacheService.self).CallbackQueue",
+        qos: .userInitiated,
+        attributes: .concurrent
+    )
     
     init(manegerURL: URL) {
         self.manegerURL = manegerURL
     }
     
     func save(_ items: [RestaurantItem], timestamp: Date, completion: @escaping SaveResult) {
-        callbackQueue.async {
+        callbackQueue.async(flags: .barrier) {
             do {
                 let cache = Cache(items: items, timestamp: timestamp)
                 let enconder = JSONEncoder()
