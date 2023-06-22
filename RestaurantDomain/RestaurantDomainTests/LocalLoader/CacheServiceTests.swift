@@ -2,6 +2,11 @@ import XCTest
 @testable import RestaurantDomain
 
 final class CacheServiceTests: XCTestCase {
+    override func setUp() {
+        super.setUp()
+        try? FileManager.default.removeItem(at: validManagerURL())
+    }
+    
     func test_save_and_returned_last_entered_value() {
         let sut = makeSUT()
         let items = [makeItem(), makeItem()]
@@ -34,6 +39,27 @@ final class CacheServiceTests: XCTestCase {
         let returnedError = insert(sut, items: firstTimeItems, timestamp: firstTimeTimestamp)
         
         XCTAssertNotNil(returnedError)
+    }
+    
+    func test_delete_has_no_effect_to_delete_an_empty_cache() {
+        let sut = makeSUT()
+        
+        assert(sut, completion: .empty)
+        
+        var returnedError = deleteCache(sut)
+        
+        XCTAssertNil(returnedError)
+    }
+    
+    func test_delete_returned_empty_after_inert_new_data_cache() {
+        let sut = makeSUT()
+        let firstTimeItems = [makeItem(), makeItem()]
+        let firstTimeTimestamp = Date()
+        
+        insert(sut, items: firstTimeItems, timestamp: firstTimeTimestamp)
+        deleteCache(sut)
+        
+        assert(sut, completion: .empty)
     }
 }
 
@@ -88,5 +114,20 @@ extension CacheServiceTests {
     
     private func invalidManagerURL() -> URL {
         return FileManager.default.urls(for: .cachesDirectory, in: .userDomainMask).first!
+    }
+    
+    @discardableResult
+    private func deleteCache(_ sut: CacheClient) -> Error? {
+        let exp = expectation(description: "esperando bloco ser completado")
+        var resultError: Error?
+        
+        sut.delete { error in
+            resultError = error
+            exp.fulfill()
+        }
+        
+        wait(for: [exp], timeout: 1.0)
+        
+        return resultError
     }
 }
