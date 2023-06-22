@@ -70,6 +70,38 @@ final class CacheServiceTests: XCTestCase {
         
         XCTAssertNotNil(returnedError)
     }
+    
+    func test_load_returned_empty_cache() {
+        let sut = makeSUT()
+        
+        assert(sut, completion: .empty)
+    }
+    
+    func test_load_returned_same_empty_cache_for_called_twice() {
+        let sut = makeSUT()
+        let sameResult: LoadResultState = .empty
+        
+        assert(sut, completion: sameResult)
+        assert(sut, completion: sameResult)
+    }
+    
+    func test_load_return_data_after_insert_data() {
+        let sut = makeSUT()
+        let items = [makeItem(), makeItem()]
+        let timestamp = Date()
+        
+        insert(sut, items: items, timestamp: timestamp)
+    }
+    
+    func test_load_returned_error_when_non_decode_data_cache() {
+        let managerURL = validManagerURL()
+        let sut = makeSUT(managerURL: managerURL)
+        let anyError = NSError(domain: "anyError", code: -1)
+        
+        try? "invalidData".write(to: managerURL, atomically: false, encoding: .utf8)
+        
+        assert(sut, completion: .failure(anyError))
+    }
 }
 
 extension CacheServiceTests {
