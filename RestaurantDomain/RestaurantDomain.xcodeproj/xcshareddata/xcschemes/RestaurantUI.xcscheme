@@ -14,9 +14,23 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "E838232E2A45035400083283"
+               BlueprintIdentifier = "E8AF88842A451A1A0097FB02"
                BuildableName = "RestaurantUI.framework"
                BlueprintName = "RestaurantUI"
+               ReferencedContainer = "container:RestaurantDomain.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "NO"
+            buildForProfiling = "NO"
+            buildForArchiving = "NO"
+            buildForAnalyzing = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "E8AF888B2A451A1A0097FB02"
+               BuildableName = "RestaurantUITests.xctest"
+               BlueprintName = "RestaurantUITests"
                ReferencedContainer = "container:RestaurantDomain.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -49,7 +63,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "E838232E2A45035400083283"
+            BlueprintIdentifier = "E8AF88842A451A1A0097FB02"
             BuildableName = "RestaurantUI.framework"
             BlueprintName = "RestaurantUI"
             ReferencedContainer = "container:RestaurantDomain.xcodeproj">

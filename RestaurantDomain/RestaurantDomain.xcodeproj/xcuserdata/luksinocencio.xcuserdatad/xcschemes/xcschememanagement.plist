@@ -17,7 +17,7 @@
 		<key>RestaurantUITests.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>isShown</key>
-			<false/>
+			<true/>
 			<key>orderHint</key>
 			<integer>2</integer>
 		</dict>
@@ -30,6 +30,21 @@
 			<true/>
 		</dict>
 		<key>E83823392A45036800083283</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>E83823582A450D7500083283</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>E8AF88742A4515DC0097FB02</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>E8AF88842A451A1A0097FB02</key>
 		<dict>
 			<key>primary</key>
 			<true/>

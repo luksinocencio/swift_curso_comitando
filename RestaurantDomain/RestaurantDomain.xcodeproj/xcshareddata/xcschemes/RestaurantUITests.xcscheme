@@ -18,7 +18,7 @@
             parallelizable = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "E83823392A45036800083283"
+               BlueprintIdentifier = "E8AF888B2A451A1A0097FB02"
                BuildableName = "RestaurantUITests.xctest"
                BlueprintName = "RestaurantUITests"
                ReferencedContainer = "container:RestaurantDomain.xcodeproj">
