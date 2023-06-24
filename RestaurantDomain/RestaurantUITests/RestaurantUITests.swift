@@ -22,10 +22,20 @@ final class RestaurantUITests: XCTestCase {
         let (sut, service) = makeSUT()
         
         sut.loadViewIfNeeded()
-        service.completionSuccess(.success([makeItem()]))
+        service.completionResult(.success([makeItem()]))
         
         XCTAssertEqual(service.loadCount, 1)
         XCTAssertEqual(sut.restaurantCollection.count, 1)
+    }
+    
+    func test_load_returned_error_and_restaurantCollection_is_empty() {
+        let (sut, service) = makeSUT()
+        
+        sut.loadViewIfNeeded()
+        service.completionResult(.failure(.connectivity))
+        
+        XCTAssertEqual(service.loadCount, 1)
+        XCTAssertEqual(sut.restaurantCollection.count, 0)
     }
 }
 
@@ -43,6 +53,12 @@ extension RestaurantUITests {
 }
 
 final class RestaurantLoaderSpy: RestaurantLoader {
+    
+    enum Methods: Equatable {
+        case load
+    }
+    
+    private(set) var methodsCalled = [Methods]()
     private(set) var loadCount = 0
     private var completionLoadHandler: ((RestaurantResult) -> Void)?
     
@@ -51,7 +67,7 @@ final class RestaurantLoaderSpy: RestaurantLoader {
         completionLoadHandler = completion
     }
     
-    func completionSuccess(_ result: RestaurantResult) {
+    func completionResult(_ result: RestaurantResult) {
         completionLoadHandler?(result)
     }
 }
