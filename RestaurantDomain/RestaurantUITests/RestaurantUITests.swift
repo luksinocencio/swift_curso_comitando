@@ -86,6 +86,20 @@ final class RestaurantUITests: XCTestCase {
         
         XCTAssertEqual(sut.isShowLoadingIndicator, false)
     }
+    
+    func test_show_loading_indicator_for_all_life_cycle_view() {
+        let (sut, service) = makeSUT()
+        
+        sut.loadViewIfNeeded()
+        XCTAssertEqual(sut.isShowLoadingIndicator, true)
+        service.completionResult(.failure(.connectivity))
+        XCTAssertEqual(sut.isShowLoadingIndicator, false)
+        
+        sut.simulatePullToRefresh()
+        XCTAssertEqual(sut.isShowLoadingIndicator, true)
+        service.completionResult(.success([makeItem()]))
+        XCTAssertEqual(sut.isShowLoadingIndicator, false)
+    }
 }
 
 extension RestaurantUITests {

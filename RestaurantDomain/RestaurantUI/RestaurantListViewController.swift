@@ -20,10 +20,10 @@ final class RestaurantListViewController: UITableViewController {
     private func setupRefreshControl() {
         refreshControl = UIRefreshControl()
         refreshControl?.addTarget(self, action: #selector(loadService), for: .valueChanged)
-        refreshControl?.beginRefreshing()
     }
     
     @objc func loadService() {
+        refreshControl?.beginRefreshing()
         service?.load(completion: { [weak self] result in
             guard let self = self else { return }
             switch result {
