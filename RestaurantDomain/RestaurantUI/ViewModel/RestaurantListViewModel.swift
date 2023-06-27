@@ -15,13 +15,6 @@ final class RestaurantListViewModel {
     
     func loadService() {
         onLoadingState?(true)
-        service.load { [weak self]result in
-            switch result {
-                case let .success(items):
-                    self?.onRestaurantItem?(items)
-                default: break
-            }
-            self?.onLoadingState?(false)
-        }
+        
     }
 }
