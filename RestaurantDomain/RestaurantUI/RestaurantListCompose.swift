@@ -3,9 +3,10 @@ import RestaurantDomain
 
 final class RestaurantListCompose {
     static func compose(service: RestaurantLoader) -> RestaurantListViewController {
-        let refreshController = RefreshController(service: service)
+        let viewModel = RestaurantListViewModel(service: service)
+        let refreshController = RefreshController(viewModel: viewModel)
         let controller = RestaurantListViewController(refreshController: refreshController)
-        refreshController.onRefresh = adapterRestaurantItemCellController(controller: controller)
+        viewModel.onRestaurantItem = adapterRestaurantItemCellController(controller: controller)
         return controller
     }
     
