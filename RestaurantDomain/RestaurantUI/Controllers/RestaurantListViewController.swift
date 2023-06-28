@@ -3,12 +3,14 @@ import UIKit
 final class RestaurantListViewController: UITableViewController {
     private(set) var restaurantCollection: [RestaurantItemCellController] = []
     
-    private var interactor: RestaurantListInteractorInput?
+    private var interactor: RestaurantListInteractorInput
     
-    convenience init(interactor: RestaurantListInteractorInput) {
-        self.init()
+    init(interactor: RestaurantListInteractorInput) {
         self.interactor = interactor
+        super.init(nibName: nil, bundle: nil)
     }
+    
+    required init?(coder: NSCoder) { nil }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,7 +35,7 @@ final class RestaurantListViewController: UITableViewController {
     }
     
     @objc func refresh() {
-        interactor?.loadService()
+        interactor.loadService()
     }
 }
 
