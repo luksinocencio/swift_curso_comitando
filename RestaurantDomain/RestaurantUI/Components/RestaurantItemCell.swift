@@ -28,6 +28,13 @@ final class RestaurantItemCell: UITableViewCell {
     private(set) lazy var parasols = renderLabel(font: .preferredFont(forTextStyle: .body))
     private(set) lazy var collectionOfRating = renderCollectionOfImage()
     
+    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
+        super.init(style: style, reuseIdentifier: reuseIdentifier)
+        setupView()
+    }
+    
+    required init?(coder: NSCoder) { nil }
+    
     private func renderLabel(font: UIFont, textColor: UIColor = .label) -> UILabel {
         let label = UILabel()
         label.font = font
@@ -97,5 +104,11 @@ extension RestaurantItemCell: ViewCodeHelper {
             hStack.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -margin),
             hStack.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -margin)
         ])
+    }
+}
+
+extension UITableViewCell {
+    static var identifier: String {
+        return "\(type(of: self))"
     }
 }

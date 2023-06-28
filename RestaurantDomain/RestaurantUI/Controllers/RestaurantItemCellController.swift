@@ -8,9 +8,7 @@ final class RestaurantItemCellController {
         self.viewModel = viewModel
     }
     
-    func renderCell() -> UITableViewCell {
-        let cell = RestaurantItemCell()
-        
+    func renderCell(_ cell: RestaurantItemCell) {
         cell.title.text = viewModel.name
         cell.location.text = viewModel.location
         cell.distance.text = viewModel.distanceToString
@@ -19,8 +17,6 @@ final class RestaurantItemCellController {
             let systemName = index < viewModel.ratings ? "star.fill" : "star"
             image.image = UIImage(systemName: systemName)
         }
-        
-        return cell
     }
 }
 
