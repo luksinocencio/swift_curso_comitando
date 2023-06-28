@@ -71,3 +71,31 @@ final class RestaurantItemCell: UITableViewCell {
         return collection
     }
 }
+
+extension RestaurantItemCell: ViewCodeHelper {
+    private var margin: CGFloat {
+        return 16
+    }
+    
+    func buildViewHierarchy() {
+        contentView.addSubview(hStack)
+        hStack.addArrangedSubview(mapImage)
+        hStack.addArrangedSubview(vStack)
+        vStack.addArrangedSubview(title)
+        vStack.addArrangedSubview(location)
+        vStack.addArrangedSubview(distance)
+        vStack.addArrangedSubview(parasols)
+        vStack.addArrangedSubview(hRatingStack)
+        
+        collectionOfRating.forEach { hRatingStack.addArrangedSubview($0) }
+    }
+    
+    func setupConstraints() {
+        NSLayoutConstraint.activate([
+            hStack.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: margin),
+            hStack.topAnchor.constraint(equalTo: contentView.topAnchor, constant: margin),
+            hStack.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -margin),
+            hStack.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -margin)
+        ])
+    }
+}
