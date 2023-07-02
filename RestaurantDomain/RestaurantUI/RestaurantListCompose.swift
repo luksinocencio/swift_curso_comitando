@@ -1,7 +1,7 @@
 import UIKit
 import RestaurantDomain
 
-final class RestaurantListCompose {
+public final class RestaurantListCompose {
     static func compose(service: RestaurantLoader) -> RestaurantListViewController {
         let decorator = MainQueueDispatchDecorator(decoratee: service)
         let presenter = RestaurantListPresenter()
@@ -15,7 +15,7 @@ final class RestaurantListCompose {
 }
 
 extension MainQueueDispatchDecorator: RestaurantLoader where T == RestaurantLoader {
-    func load(completion: @escaping (Result<[RestaurantDomain.RestaurantItem], RestaurantDomain.RestaurantResultError>) -> Void) {
+    public func load(completion: @escaping (Result<[RestaurantDomain.RestaurantItem], RestaurantDomain.RestaurantResultError>) -> Void) {
         decoratee.load { [weak self] result in
             self?.dispatch {
                 completion(result)

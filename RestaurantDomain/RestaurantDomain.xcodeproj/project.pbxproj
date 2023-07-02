@@ -25,6 +25,10 @@
 		E86249E72A5210C200539923 /* SunnyDayTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E86249E62A5210C200539923 /* SunnyDayTests.swift */; };
 		E86249F12A5210C200539923 /* SunnyDayUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E86249F02A5210C200539923 /* SunnyDayUITests.swift */; };
 		E86249F32A5210C200539923 /* SunnyDayUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E86249F22A5210C200539923 /* SunnyDayUITestsLaunchTests.swift */; };
+		E86249FD2A52120A00539923 /* RestaurantDomain.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E8E04E1A29D32F1000E532B5 /* RestaurantDomain.framework */; };
+		E86249FE2A52120A00539923 /* RestaurantDomain.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = E8E04E1A29D32F1000E532B5 /* RestaurantDomain.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		E8624A022A52122100539923 /* RestaurantUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E8AF88852A451A1A0097FB02 /* RestaurantUI.framework */; };
+		E8624A032A52122100539923 /* RestaurantUI.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = E8AF88852A451A1A0097FB02 /* RestaurantUI.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		E863A75829D4EF24004BDB71 /* NetworkClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = E863A75729D4EF24004BDB71 /* NetworkClient.swift */; };
 		E863A75A29D4EF7C004BDB71 /* RestaurantItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = E863A75929D4EF7C004BDB71 /* RestaurantItem.swift */; };
 		E863A75C29D4EFCA004BDB71 /* NetworkClientSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = E863A75B29D4EFCA004BDB71 /* NetworkClientSpy.swift */; };
@@ -67,6 +71,20 @@
 			remoteGlobalIDString = E86249CC2A5210C000539923;
 			remoteInfo = SunnyDay;
 		};
+		E86249FF2A52120A00539923 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E8E04E1129D32F1000E532B5 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = E8E04E1929D32F1000E532B5;
+			remoteInfo = RestaurantDomain;
+		};
+		E8624A042A52122100539923 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E8E04E1129D32F1000E532B5 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = E8AF88842A451A1A0097FB02;
+			remoteInfo = RestaurantUI;
+		};
 		E8AF888E2A451A1A0097FB02 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = E8E04E1129D32F1000E532B5 /* Project object */;
@@ -91,6 +109,18 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
+		E8624A012A52120A00539923 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				E86249FE2A52120A00539923 /* RestaurantDomain.framework in Embed Frameworks */,
+				E8624A032A52122100539923 /* RestaurantUI.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		E8AF88A02A451ADA0097FB02 /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
@@ -157,6 +187,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E86249FD2A52120A00539923 /* RestaurantDomain.framework in Frameworks */,
+				E8624A022A52122100539923 /* RestaurantUI.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -425,10 +457,13 @@
 				E86249C92A5210C000539923 /* Sources */,
 				E86249CA2A5210C000539923 /* Frameworks */,
 				E86249CB2A5210C000539923 /* Resources */,
+				E8624A012A52120A00539923 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				E8624A002A52120A00539923 /* PBXTargetDependency */,
+				E8624A052A52122100539923 /* PBXTargetDependency */,
 			);
 			name = SunnyDay;
 			productName = SunnyDay;
@@ -762,6 +797,16 @@
 			isa = PBXTargetDependency;
 			target = E86249CC2A5210C000539923 /* SunnyDay */;
 			targetProxy = E86249ED2A5210C200539923 /* PBXContainerItemProxy */;
+		};
+		E8624A002A52120A00539923 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = E8E04E1929D32F1000E532B5 /* RestaurantDomain */;
+			targetProxy = E86249FF2A52120A00539923 /* PBXContainerItemProxy */;
+		};
+		E8624A052A52122100539923 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = E8AF88842A451A1A0097FB02 /* RestaurantUI */;
+			targetProxy = E8624A042A52122100539923 /* PBXContainerItemProxy */;
 		};
 		E8AF888F2A451A1A0097FB02 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
