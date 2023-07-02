@@ -15,28 +15,46 @@ final class RestaurantListCompose {
 }
 
 
-final class MainQueueDispatchDecorator: RestaurantLoader {
-    private let decoratee: RestaurantLoader
+final class MainQueueDispatchDecorator<T> {
+    private let decoratee: T
     
-    init(decoratee: RestaurantLoader) {
+    init(decoratee: T) {
         self.decoratee = decoratee
     }
     
-    func load(completion: @escaping (Result<[RestaurantDomain.RestaurantItem], RestaurantDomain.RestaurantResultError>) -> Void) {
-        decoratee.load { result in
-            DispatchQueue.main.safeAsync {
-                completion(result)
-            }
+    func dispatch(completion: @escaping () -> Void) {
+        guard Thread.isMainThread else {
+            return DispatchQueue.main.async(execute: completion)
         }
+        
+        completion()
     }
+    
+//    func load(completion: @escaping (Result<[RestaurantDomain.RestaurantItem], RestaurantDomain.RestaurantResultError>) -> Void) {
+//        decoratee.load { result in
+//            DispatchQueue.main.safeAsync {
+//                completion(result)
+//            }
+//        }
+//    }
 }
 
-extension DispatchQueue {
-    func safeAsync(_ block: @escaping () -> Void) {
-        if self === DispatchQueue.main && Thread.isMainThread {
-            block()
-        } else {
-            async { block() }
+//extension DispatchQueue {
+//    func safeAsync(_ block: @escaping () -> Void) {
+//        if self === DispatchQueue.main && Thread.isMainThread {
+//            block()
+//        } else {
+//            async { block() }
+//        }
+//    }
+//}
+
+extension MainQueueDispatchDecorator: RestaurantLoader where T == RestaurantLoader {
+    func load(completion: @escaping (Result<[RestaurantDomain.RestaurantItem], RestaurantDomain.RestaurantResultError>) -> Void) {
+        decoratee.load { [weak self] result in
+            self?.dispatch {
+                completion(result)
+            }
         }
     }
 }
