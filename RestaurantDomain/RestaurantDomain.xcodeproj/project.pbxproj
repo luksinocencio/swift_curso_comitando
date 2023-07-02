@@ -34,6 +34,8 @@
 		E8B50BFC2A26CF6000911571 /* LocalRestaurantLoaderForValidateCacheCommandTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8B50BFB2A26CF6000911571 /* LocalRestaurantLoaderForValidateCacheCommandTests.swift */; };
 		E8B50BFE2A26E73300911571 /* CachePolicy.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8B50BFD2A26E73300911571 /* CachePolicy.swift */; };
 		E8B50C002A26E77400911571 /* CacheClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8B50BFF2A26E77400911571 /* CacheClient.swift */; };
+		E8BA3E0C2A51D38000BC8B32 /* SnapshotTesting in Frameworks */ = {isa = PBXBuildFile; productRef = E8BA3E0B2A51D38000BC8B32 /* SnapshotTesting */; };
+		E8BA3E0E2A51D3ED00BC8B32 /* RestaurantUISnaphotTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8BA3E0D2A51D3ED00BC8B32 /* RestaurantUISnaphotTests.swift */; };
 		E8E04E2329D32F1100E532B5 /* RestaurantDomain.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E8E04E1A29D32F1000E532B5 /* RestaurantDomain.framework */; };
 		E8E04E2829D32F1100E532B5 /* RemoteRestaurantLoaderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8E04E2729D32F1100E532B5 /* RemoteRestaurantLoaderTests.swift */; };
 		E8E04E2929D32F1100E532B5 /* RestaurantDomain.h in Headers */ = {isa = PBXBuildFile; fileRef = E8E04E1D29D32F1000E532B5 /* RestaurantDomain.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -104,6 +106,7 @@
 		E8B50BFB2A26CF6000911571 /* LocalRestaurantLoaderForValidateCacheCommandTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalRestaurantLoaderForValidateCacheCommandTests.swift; sourceTree = "<group>"; };
 		E8B50BFD2A26E73300911571 /* CachePolicy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CachePolicy.swift; sourceTree = "<group>"; };
 		E8B50BFF2A26E77400911571 /* CacheClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CacheClient.swift; sourceTree = "<group>"; };
+		E8BA3E0D2A51D3ED00BC8B32 /* RestaurantUISnaphotTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantUISnaphotTests.swift; sourceTree = "<group>"; };
 		E8E04E1A29D32F1000E532B5 /* RestaurantDomain.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = RestaurantDomain.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E8E04E1D29D32F1000E532B5 /* RestaurantDomain.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RestaurantDomain.h; sourceTree = "<group>"; };
 		E8E04E2229D32F1100E532B5 /* RestaurantDomainTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RestaurantDomainTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -125,6 +128,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E8AF888D2A451A1A0097FB02 /* RestaurantUI.framework in Frameworks */,
+				E8BA3E0C2A51D38000BC8B32 /* SnapshotTesting in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -237,6 +241,7 @@
 			isa = PBXGroup;
 			children = (
 				E8AF88912A451A1A0097FB02 /* RestaurantUITests.swift */,
+				E8BA3E0D2A51D3ED00BC8B32 /* RestaurantUISnaphotTests.swift */,
 			);
 			path = RestaurantUITests;
 			sourceTree = "<group>";
@@ -342,6 +347,9 @@
 				E8AF888F2A451A1A0097FB02 /* PBXTargetDependency */,
 			);
 			name = RestaurantUITests;
+			packageProductDependencies = (
+				E8BA3E0B2A51D38000BC8B32 /* SnapshotTesting */,
+			);
 			productName = RestaurantUITests;
 			productReference = E8AF888C2A451A1A0097FB02 /* RestaurantUITests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
@@ -417,6 +425,9 @@
 				Base,
 			);
 			mainGroup = E8E04E1029D32F1000E532B5;
+			packageReferences = (
+				E8BA3E0A2A51D38000BC8B32 /* XCRemoteSwiftPackageReference "swift-snapshot-testing" */,
+			);
 			productRefGroup = E8E04E1B29D32F1000E532B5 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -480,6 +491,7 @@
 			files = (
 				E8AF88A12A451AF70097FB02 /* XCTestCase+Helpers.swift in Sources */,
 				E8AF88922A451A1A0097FB02 /* RestaurantUITests.swift in Sources */,
+				E8BA3E0E2A51D3ED00BC8B32 /* RestaurantUISnaphotTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -925,6 +937,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		E8BA3E0A2A51D38000BC8B32 /* XCRemoteSwiftPackageReference "swift-snapshot-testing" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/pointfreeco/swift-snapshot-testing";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		E8BA3E0B2A51D38000BC8B32 /* SnapshotTesting */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E8BA3E0A2A51D38000BC8B32 /* XCRemoteSwiftPackageReference "swift-snapshot-testing" */;
+			productName = SnapshotTesting;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = E8E04E1129D32F1000E532B5 /* Project object */;
 }
