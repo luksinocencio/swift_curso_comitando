@@ -16,6 +16,15 @@
 		E85317C22A4A8236009ADB15 /* RestaurantListInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = E85317C12A4A8236009ADB15 /* RestaurantListInteractor.swift */; };
 		E85317C42A4A8442009ADB15 /* RestaurantListPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E85317C32A4A8442009ADB15 /* RestaurantListPresenter.swift */; };
 		E86249C82A520E9A00539923 /* MainQueueDispatchDecorator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E86249C72A520E9A00539923 /* MainQueueDispatchDecorator.swift */; };
+		E86249D02A5210C000539923 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E86249CF2A5210C000539923 /* AppDelegate.swift */; };
+		E86249D22A5210C000539923 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E86249D12A5210C000539923 /* SceneDelegate.swift */; };
+		E86249D42A5210C000539923 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E86249D32A5210C000539923 /* ViewController.swift */; };
+		E86249D72A5210C000539923 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E86249D52A5210C000539923 /* Main.storyboard */; };
+		E86249D92A5210C200539923 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E86249D82A5210C200539923 /* Assets.xcassets */; };
+		E86249DC2A5210C200539923 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E86249DA2A5210C200539923 /* LaunchScreen.storyboard */; };
+		E86249E72A5210C200539923 /* SunnyDayTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E86249E62A5210C200539923 /* SunnyDayTests.swift */; };
+		E86249F12A5210C200539923 /* SunnyDayUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E86249F02A5210C200539923 /* SunnyDayUITests.swift */; };
+		E86249F32A5210C200539923 /* SunnyDayUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E86249F22A5210C200539923 /* SunnyDayUITestsLaunchTests.swift */; };
 		E863A75829D4EF24004BDB71 /* NetworkClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = E863A75729D4EF24004BDB71 /* NetworkClient.swift */; };
 		E863A75A29D4EF7C004BDB71 /* RestaurantItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = E863A75929D4EF7C004BDB71 /* RestaurantItem.swift */; };
 		E863A75C29D4EFCA004BDB71 /* NetworkClientSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = E863A75B29D4EFCA004BDB71 /* NetworkClientSpy.swift */; };
@@ -44,6 +53,20 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		E86249E32A5210C200539923 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E8E04E1129D32F1000E532B5 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = E86249CC2A5210C000539923;
+			remoteInfo = SunnyDay;
+		};
+		E86249ED2A5210C200539923 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E8E04E1129D32F1000E532B5 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = E86249CC2A5210C000539923;
+			remoteInfo = SunnyDay;
+		};
 		E8AF888E2A451A1A0097FB02 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = E8E04E1129D32F1000E532B5 /* Project object */;
@@ -91,6 +114,19 @@
 		E85317C12A4A8236009ADB15 /* RestaurantListInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantListInteractor.swift; sourceTree = "<group>"; };
 		E85317C32A4A8442009ADB15 /* RestaurantListPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantListPresenter.swift; sourceTree = "<group>"; };
 		E86249C72A520E9A00539923 /* MainQueueDispatchDecorator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainQueueDispatchDecorator.swift; sourceTree = "<group>"; };
+		E86249CD2A5210C000539923 /* SunnyDay.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SunnyDay.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		E86249CF2A5210C000539923 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		E86249D12A5210C000539923 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		E86249D32A5210C000539923 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		E86249D62A5210C000539923 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		E86249D82A5210C200539923 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		E86249DB2A5210C200539923 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		E86249DD2A5210C200539923 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E86249E22A5210C200539923 /* SunnyDayTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SunnyDayTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		E86249E62A5210C200539923 /* SunnyDayTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SunnyDayTests.swift; sourceTree = "<group>"; };
+		E86249EC2A5210C200539923 /* SunnyDayUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SunnyDayUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		E86249F02A5210C200539923 /* SunnyDayUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SunnyDayUITests.swift; sourceTree = "<group>"; };
+		E86249F22A5210C200539923 /* SunnyDayUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SunnyDayUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		E863A75729D4EF24004BDB71 /* NetworkClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkClient.swift; sourceTree = "<group>"; };
 		E863A75929D4EF7C004BDB71 /* RestaurantItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantItem.swift; sourceTree = "<group>"; };
 		E863A75B29D4EFCA004BDB71 /* NetworkClientSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkClientSpy.swift; sourceTree = "<group>"; };
@@ -117,6 +153,27 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		E86249CA2A5210C000539923 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E86249DF2A5210C200539923 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E86249E92A5210C200539923 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		E8AF88822A451A1A0097FB02 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -193,6 +250,37 @@
 			path = Helpers;
 			sourceTree = "<group>";
 		};
+		E86249CE2A5210C000539923 /* SunnyDay */ = {
+			isa = PBXGroup;
+			children = (
+				E86249CF2A5210C000539923 /* AppDelegate.swift */,
+				E86249D12A5210C000539923 /* SceneDelegate.swift */,
+				E86249D32A5210C000539923 /* ViewController.swift */,
+				E86249D52A5210C000539923 /* Main.storyboard */,
+				E86249D82A5210C200539923 /* Assets.xcassets */,
+				E86249DA2A5210C200539923 /* LaunchScreen.storyboard */,
+				E86249DD2A5210C200539923 /* Info.plist */,
+			);
+			path = SunnyDay;
+			sourceTree = "<group>";
+		};
+		E86249E52A5210C200539923 /* SunnyDayTests */ = {
+			isa = PBXGroup;
+			children = (
+				E86249E62A5210C200539923 /* SunnyDayTests.swift */,
+			);
+			path = SunnyDayTests;
+			sourceTree = "<group>";
+		};
+		E86249EF2A5210C200539923 /* SunnyDayUITests */ = {
+			isa = PBXGroup;
+			children = (
+				E86249F02A5210C200539923 /* SunnyDayUITests.swift */,
+				E86249F22A5210C200539923 /* SunnyDayUITestsLaunchTests.swift */,
+			);
+			path = SunnyDayUITests;
+			sourceTree = "<group>";
+		};
 		E8ADCC1929EC3CAB00ABC1D1 /* RemoteLoader */ = {
 			isa = PBXGroup;
 			children = (
@@ -264,6 +352,9 @@
 				E8E04E2629D32F1100E532B5 /* RestaurantDomainTests */,
 				E8AF88862A451A1A0097FB02 /* RestaurantUI */,
 				E8AF88902A451A1A0097FB02 /* RestaurantUITests */,
+				E86249CE2A5210C000539923 /* SunnyDay */,
+				E86249E52A5210C200539923 /* SunnyDayTests */,
+				E86249EF2A5210C200539923 /* SunnyDayUITests */,
 				E8E04E1B29D32F1000E532B5 /* Products */,
 				E83823442A45041F00083283 /* Frameworks */,
 			);
@@ -276,6 +367,9 @@
 				E8E04E2229D32F1100E532B5 /* RestaurantDomainTests.xctest */,
 				E8AF88852A451A1A0097FB02 /* RestaurantUI.framework */,
 				E8AF888C2A451A1A0097FB02 /* RestaurantUITests.xctest */,
+				E86249CD2A5210C000539923 /* SunnyDay.app */,
+				E86249E22A5210C200539923 /* SunnyDayTests.xctest */,
+				E86249EC2A5210C200539923 /* SunnyDayUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -324,6 +418,59 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
+		E86249CC2A5210C000539923 /* SunnyDay */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E86249F42A5210C200539923 /* Build configuration list for PBXNativeTarget "SunnyDay" */;
+			buildPhases = (
+				E86249C92A5210C000539923 /* Sources */,
+				E86249CA2A5210C000539923 /* Frameworks */,
+				E86249CB2A5210C000539923 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SunnyDay;
+			productName = SunnyDay;
+			productReference = E86249CD2A5210C000539923 /* SunnyDay.app */;
+			productType = "com.apple.product-type.application";
+		};
+		E86249E12A5210C200539923 /* SunnyDayTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E86249F72A5210C200539923 /* Build configuration list for PBXNativeTarget "SunnyDayTests" */;
+			buildPhases = (
+				E86249DE2A5210C200539923 /* Sources */,
+				E86249DF2A5210C200539923 /* Frameworks */,
+				E86249E02A5210C200539923 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				E86249E42A5210C200539923 /* PBXTargetDependency */,
+			);
+			name = SunnyDayTests;
+			productName = SunnyDayTests;
+			productReference = E86249E22A5210C200539923 /* SunnyDayTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		E86249EB2A5210C200539923 /* SunnyDayUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E86249FA2A5210C200539923 /* Build configuration list for PBXNativeTarget "SunnyDayUITests" */;
+			buildPhases = (
+				E86249E82A5210C200539923 /* Sources */,
+				E86249E92A5210C200539923 /* Frameworks */,
+				E86249EA2A5210C200539923 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				E86249EE2A5210C200539923 /* PBXTargetDependency */,
+			);
+			name = SunnyDayUITests;
+			productName = SunnyDayUITests;
+			productReference = E86249EC2A5210C200539923 /* SunnyDayUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
 		E8AF88842A451A1A0097FB02 /* RestaurantUI */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = E8AF88942A451A1A0097FB02 /* Build configuration list for PBXNativeTarget "RestaurantUI" */;
@@ -411,6 +558,17 @@
 				LastSwiftUpdateCheck = 1430;
 				LastUpgradeCheck = 1420;
 				TargetAttributes = {
+					E86249CC2A5210C000539923 = {
+						CreatedOnToolsVersion = 14.3.1;
+					};
+					E86249E12A5210C200539923 = {
+						CreatedOnToolsVersion = 14.3.1;
+						TestTargetID = E86249CC2A5210C000539923;
+					};
+					E86249EB2A5210C200539923 = {
+						CreatedOnToolsVersion = 14.3.1;
+						TestTargetID = E86249CC2A5210C000539923;
+					};
 					E8AF88842A451A1A0097FB02 = {
 						CreatedOnToolsVersion = 14.3.1;
 						LastSwiftMigration = 1430;
@@ -447,11 +605,38 @@
 				E8E04E2129D32F1100E532B5 /* RestaurantDomainTests */,
 				E8AF88842A451A1A0097FB02 /* RestaurantUI */,
 				E8AF888B2A451A1A0097FB02 /* RestaurantUITests */,
+				E86249CC2A5210C000539923 /* SunnyDay */,
+				E86249E12A5210C200539923 /* SunnyDayTests */,
+				E86249EB2A5210C200539923 /* SunnyDayUITests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		E86249CB2A5210C000539923 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E86249DC2A5210C200539923 /* LaunchScreen.storyboard in Resources */,
+				E86249D92A5210C200539923 /* Assets.xcassets in Resources */,
+				E86249D72A5210C000539923 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E86249E02A5210C200539923 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E86249EA2A5210C200539923 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		E8AF88832A451A1A0097FB02 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -483,6 +668,33 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		E86249C92A5210C000539923 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E86249D42A5210C000539923 /* ViewController.swift in Sources */,
+				E86249D02A5210C000539923 /* AppDelegate.swift in Sources */,
+				E86249D22A5210C000539923 /* SceneDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E86249DE2A5210C200539923 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E86249E72A5210C200539923 /* SunnyDayTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E86249E82A5210C200539923 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E86249F32A5210C200539923 /* SunnyDayUITestsLaunchTests.swift in Sources */,
+				E86249F12A5210C200539923 /* SunnyDayUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		E8AF88812A451A1A0097FB02 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -541,6 +753,16 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		E86249E42A5210C200539923 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = E86249CC2A5210C000539923 /* SunnyDay */;
+			targetProxy = E86249E32A5210C200539923 /* PBXContainerItemProxy */;
+		};
+		E86249EE2A5210C200539923 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = E86249CC2A5210C000539923 /* SunnyDay */;
+			targetProxy = E86249ED2A5210C200539923 /* PBXContainerItemProxy */;
+		};
 		E8AF888F2A451A1A0097FB02 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = E8AF88842A451A1A0097FB02 /* RestaurantUI */;
@@ -558,7 +780,177 @@
 		};
 /* End PBXTargetDependency section */
 
+/* Begin PBXVariantGroup section */
+		E86249D52A5210C000539923 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				E86249D62A5210C000539923 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		E86249DA2A5210C200539923 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				E86249DB2A5210C200539923 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
 /* Begin XCBuildConfiguration section */
+		E86249F52A5210C200539923 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = Y65JAZKR5L;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = SunnyDay/Info.plist;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.devemeist3r.SunnyDay;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		E86249F62A5210C200539923 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = Y65JAZKR5L;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = SunnyDay/Info.plist;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.devemeist3r.SunnyDay;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		E86249F82A5210C200539923 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = Y65JAZKR5L;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.devemeist3r.SunnyDayTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SunnyDay.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/SunnyDay";
+			};
+			name = Debug;
+		};
+		E86249F92A5210C200539923 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = Y65JAZKR5L;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.devemeist3r.SunnyDayTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SunnyDay.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/SunnyDay";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		E86249FB2A5210C200539923 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = Y65JAZKR5L;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.devemeist3r.SunnyDayUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = SunnyDay;
+			};
+			name = Debug;
+		};
+		E86249FC2A5210C200539923 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = Y65JAZKR5L;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.devemeist3r.SunnyDayUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = SunnyDay;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
 		E8AF88952A451A1A0097FB02 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -903,6 +1295,33 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		E86249F42A5210C200539923 /* Build configuration list for PBXNativeTarget "SunnyDay" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E86249F52A5210C200539923 /* Debug */,
+				E86249F62A5210C200539923 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E86249F72A5210C200539923 /* Build configuration list for PBXNativeTarget "SunnyDayTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E86249F82A5210C200539923 /* Debug */,
+				E86249F92A5210C200539923 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E86249FA2A5210C200539923 /* Build configuration list for PBXNativeTarget "SunnyDayUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E86249FB2A5210C200539923 /* Debug */,
+				E86249FC2A5210C200539923 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		E8AF88942A451A1A0097FB02 /* Build configuration list for PBXNativeTarget "RestaurantUI" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
