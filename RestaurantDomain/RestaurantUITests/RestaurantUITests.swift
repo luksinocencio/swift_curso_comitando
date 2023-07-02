@@ -115,6 +115,20 @@ final class RestaurantUITests: XCTestCase {
         XCTAssertEqual(cell?.parasols.text, "Guarda-sois: \(item.parasols)")
         XCTAssertEqual(cell?.distance.text, "Distância: \(item.distance)m")
     }
+    
+    func test_load_completion_dispatches_in_background_threads() {
+        let (sut, service) = makeSUT()
+        let items = [makeItem()]
+        
+        sut.loadViewIfNeeded()
+        let exp = expectation(description: "aguardando retorno do bloco")
+        DispatchQueue.global().async {
+            service.completionResult(.success(items))
+            exp.fulfill()
+        }
+        
+        wait(for: [exp], timeout: 3.0)
+    }
 }
 
 extension RestaurantUITests {
