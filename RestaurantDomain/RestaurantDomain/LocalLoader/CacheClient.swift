@@ -6,7 +6,7 @@ public enum LoadResultState {
     case failure(Error)
 }
 
-protocol CacheClient {
+public protocol CacheClient {
     typealias SaveResult = (Error?) -> Void
     typealias DeleteResult = (Error?) -> Void
     typealias LoadResult = (LoadResultState) -> Void
@@ -16,7 +16,7 @@ protocol CacheClient {
     func load(completion: @escaping LoadResult)
 }
 
-final class CacheService: CacheClient {
+public final class CacheService: CacheClient {
     
     private struct Cache: Codable {
         let items: [RestaurantItem]
@@ -29,11 +29,11 @@ final class CacheService: CacheClient {
         attributes: .concurrent
     )
     
-    init(manegerURL: URL) {
+    public init(manegerURL: URL) {
         self.manegerURL = manegerURL
     }
     
-    func save(_ items: [RestaurantItem], timestamp: Date, completion: @escaping SaveResult) {
+    public func save(_ items: [RestaurantItem], timestamp: Date, completion: @escaping SaveResult) {
         callbackQueue.async(flags: .barrier) {
             do {
                 let cache = Cache(items: items, timestamp: timestamp)
@@ -47,7 +47,7 @@ final class CacheService: CacheClient {
         }
     }
     
-    func delete(completion: @escaping DeleteResult) {
+    public func delete(completion: @escaping DeleteResult) {
         callbackQueue.async {
             guard FileManager.default.fileExists(atPath: self.manegerURL.path) else {
                 return completion(nil)
@@ -61,7 +61,7 @@ final class CacheService: CacheClient {
         }
     }
     
-    func load(completion: @escaping LoadResult) {
+    public func load(completion: @escaping LoadResult) {
         callbackQueue.async {
             guard let data = try? Data(contentsOf: self.manegerURL) else {
                 return completion(.empty)

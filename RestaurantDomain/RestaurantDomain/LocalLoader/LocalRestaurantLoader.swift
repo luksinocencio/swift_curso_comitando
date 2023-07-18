@@ -1,11 +1,11 @@
 import Foundation
 
-final class LocalRestaurantLoader {
-    let cache: CacheClient
+public final class LocalRestaurantLoader {
+    public let cache: CacheClient
     let cachePolicy: CachePolicy
     let currentDate: () -> Date
     
-    init(cache: CacheClient, cachePolicy: CachePolicy = RestaurantLoaderCachePolicy(), currentDate: @escaping () -> Date) {
+    public init(cache: CacheClient, cachePolicy: CachePolicy = RestaurantLoaderCachePolicy(), currentDate: @escaping () -> Date) {
         self.cache = cache
         self.cachePolicy = cachePolicy
         self.currentDate = currentDate
@@ -44,7 +44,7 @@ final class LocalRestaurantLoader {
 }
 
 extension LocalRestaurantLoader: RestaurantLoader {
-    func load(completion: @escaping (Result<[RestaurantItem], RestaurantResultError>) -> Void) {
+    public func load(completion: @escaping (Result<[RestaurantItem], RestaurantResultError>) -> Void) {
         cache.load { [weak self] state in
             guard let self else { return }
             switch state {
