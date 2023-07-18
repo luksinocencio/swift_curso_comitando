@@ -1,7 +1,7 @@
 import UIKit
 import RestaurantDomain
 
-final class RestaurantItemCellController {
+public final class RestaurantItemCellController {
     let viewModel: RestaurantItem
     
     init(viewModel: RestaurantItem) {

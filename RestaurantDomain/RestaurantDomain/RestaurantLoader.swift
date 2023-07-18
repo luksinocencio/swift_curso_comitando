@@ -6,7 +6,6 @@ public enum RestaurantResultError: Error {
 }
 
 public protocol RestaurantLoader {
-    
     typealias RestaurantResult = Result<[RestaurantItem], RestaurantResultError>
     func load(completion: @escaping (RestaurantLoader.RestaurantResult) -> Void)
 }

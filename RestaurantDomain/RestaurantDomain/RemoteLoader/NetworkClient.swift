@@ -5,14 +5,14 @@ public protocol NetworkClient {
     func request(from url: URL, completion: @escaping (NetworkResult) -> Void)
 }
 
-final class NetworkService: NetworkClient {
-    let session: URLSession
+public final class NetworkService: NetworkClient {
+    private let session: URLSession
     
-    init(session: URLSession) {
+    public init(session: URLSession) {
         self.session = session
     }
     
-    func request(from url: URL, completion: @escaping (NetworkResult) -> Void) {
+    public func request(from url: URL, completion: @escaping (NetworkResult) -> Void) {
         session.dataTask(with: url) { data, response, error in
             if let error = error {
                 completion(.failure(error))

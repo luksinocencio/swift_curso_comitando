@@ -1,6 +1,6 @@
 import UIKit
 
-final class RestaurantListViewController: UITableViewController {
+public final class RestaurantListViewController: UITableViewController {
     private(set) var restaurantCollection: [RestaurantItemCellController] = []
     
     private var interactor: RestaurantListInteractorInput
@@ -12,7 +12,7 @@ final class RestaurantListViewController: UITableViewController {
     
     required init?(coder: NSCoder) { nil }
     
-    override func viewDidLoad() {
+    public override func viewDidLoad() {
         super.viewDidLoad()
         refreshControl = UIRefreshControl()
         refreshControl?.addTarget(self, action: #selector(refresh), for: .valueChanged)
@@ -20,11 +20,11 @@ final class RestaurantListViewController: UITableViewController {
         refresh()
     }
     
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    public override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         restaurantCollection.count
     }
     
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    public override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: RestaurantItemCell.identifier, for: indexPath) as? RestaurantItemCell else {
             return UITableViewCell()
         }
