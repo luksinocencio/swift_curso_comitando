@@ -12,6 +12,7 @@
 		E81C1A0E2A1463D4001A6653 /* CacheClientSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = E81C1A0D2A1463D4001A6653 /* CacheClientSpy.swift */; };
 		E828DAF329D60FAD00ECEF14 /* NetworkServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E828DAF229D60FAD00ECEF14 /* NetworkServiceTests.swift */; };
 		E8455C9C2A6B00D1005CD8CA /* RestaurantLoaderCompositeRemoteAndLocal.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8455C9B2A6B00D1005CD8CA /* RestaurantLoaderCompositeRemoteAndLocal.swift */; };
+		E8455C9D2A6B069B005CD8CA /* XCTestCase+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = E84D2C6D29DCB2B500E07D3D /* XCTestCase+Helpers.swift */; };
 		E84D2C6C29DCB27800E07D3D /* URLSessionSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = E84D2C6B29DCB27800E07D3D /* URLSessionSpy.swift */; };
 		E84D2C6E29DCB2B500E07D3D /* XCTestCase+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = E84D2C6D29DCB2B500E07D3D /* XCTestCase+Helpers.swift */; };
 		E85317C22A4A8236009ADB15 /* RestaurantListInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = E85317C12A4A8236009ADB15 /* RestaurantListInteractor.swift */; };
@@ -23,7 +24,7 @@
 		E86249D72A5210C000539923 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E86249D52A5210C000539923 /* Main.storyboard */; };
 		E86249D92A5210C200539923 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E86249D82A5210C200539923 /* Assets.xcassets */; };
 		E86249DC2A5210C200539923 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E86249DA2A5210C200539923 /* LaunchScreen.storyboard */; };
-		E86249E72A5210C200539923 /* SunnyDayTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E86249E62A5210C200539923 /* SunnyDayTests.swift */; };
+		E86249E72A5210C200539923 /* RestaurantLoaderCompositeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E86249E62A5210C200539923 /* RestaurantLoaderCompositeTests.swift */; };
 		E86249F12A5210C200539923 /* SunnyDayUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E86249F02A5210C200539923 /* SunnyDayUITests.swift */; };
 		E86249F32A5210C200539923 /* SunnyDayUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E86249F22A5210C200539923 /* SunnyDayUITestsLaunchTests.swift */; };
 		E86249FD2A52120A00539923 /* RestaurantDomain.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E8E04E1A29D32F1000E532B5 /* RestaurantDomain.framework */; };
@@ -155,7 +156,7 @@
 		E86249DB2A5210C200539923 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E86249DD2A5210C200539923 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E86249E22A5210C200539923 /* SunnyDayTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SunnyDayTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		E86249E62A5210C200539923 /* SunnyDayTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SunnyDayTests.swift; sourceTree = "<group>"; };
+		E86249E62A5210C200539923 /* RestaurantLoaderCompositeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantLoaderCompositeTests.swift; sourceTree = "<group>"; };
 		E86249EC2A5210C200539923 /* SunnyDayUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SunnyDayUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E86249F02A5210C200539923 /* SunnyDayUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SunnyDayUITests.swift; sourceTree = "<group>"; };
 		E86249F22A5210C200539923 /* SunnyDayUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SunnyDayUITestsLaunchTests.swift; sourceTree = "<group>"; };
@@ -302,7 +303,7 @@
 		E86249E52A5210C200539923 /* SunnyDayTests */ = {
 			isa = PBXGroup;
 			children = (
-				E86249E62A5210C200539923 /* SunnyDayTests.swift */,
+				E86249E62A5210C200539923 /* RestaurantLoaderCompositeTests.swift */,
 			);
 			path = SunnyDayTests;
 			sourceTree = "<group>";
@@ -721,7 +722,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E86249E72A5210C200539923 /* SunnyDayTests.swift in Sources */,
+				E8455C9D2A6B069B005CD8CA /* XCTestCase+Helpers.swift in Sources */,
+				E86249E72A5210C200539923 /* RestaurantLoaderCompositeTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
