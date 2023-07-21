@@ -7,12 +7,14 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     var window: UIWindow?
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
+        guard let _ = (scene as? UIWindowScene) else { return }
         
         let session = URLSession(configuration: .ephemeral)
+        
         // Online
         let network = NetworkService(session: session)
         let url = URL(string: "https://raw.githubusercontent.com/comitando/assets/main/api/restaurant_list_endpoint.json")!
-        let service = RemoteRestaurantLoader(url: url, networkClient: network)
+        let remoteService = RemoteRestaurantLoader(url: url, networkClient: network)
         
         // Local
         let fileManagerURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!.appending(path: "SunnyDay.store")
@@ -21,7 +23,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             return Date()
         }
         
-        let controller = RestaurantListCompose.compose(service: localService)
+        let compositeService = RestaurantLoaderCompositeRemoteAndLocal(main: remoteService, fallback: localService)
+        let controller = RestaurantListCompose.compose(service: compositeService)
         let navigation = UINavigationController(rootViewController: controller)
         window?.rootViewController = navigation
     }
