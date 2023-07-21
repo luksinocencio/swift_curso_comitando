@@ -41,7 +41,7 @@ extension RestaurantUISnaphotTests {
         line: UInt = #line
     ) -> (sut: RestaurantListViewController, service: RestaurantLoaderSpy) {
         let service = RestaurantLoaderSpy()
-        let sut = RestaurantListCompose.compose(service: service)
+        let sut = RestaurantListCompose.compose(service: service) as! RestaurantListViewController
         trackForMemoryLeaks(sut, file: file, line: line)
         trackForMemoryLeaks(service, file: file, line: line)
         return (sut, service)

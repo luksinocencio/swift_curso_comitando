@@ -17,7 +17,7 @@ public extension ViewCodeHelper {
     func setupAdditionalConfiguration() { }
 }
 
-public final class RestaurantItemCell: UITableViewCell {
+final class RestaurantItemCell: UITableViewCell {
     private(set) lazy var hStack = renderStack(axis: .horizontal, spacing: 16, alignment: .center)
     private(set) lazy var vStack = renderStack(axis: .vertical, spacing: 4, alignment: .leading)
     private(set) lazy var hRatingStack = renderStack(axis: .horizontal, spacing: 0, alignment: .fill)
@@ -85,7 +85,7 @@ extension RestaurantItemCell: ViewCodeHelper {
         return 16
     }
     
-    public func buildViewHierarchy() {
+    func buildViewHierarchy() {
         contentView.addSubview(hStack)
         hStack.addArrangedSubview(mapImage)
         hStack.addArrangedSubview(vStack)
@@ -98,7 +98,7 @@ extension RestaurantItemCell: ViewCodeHelper {
         collectionOfRating.forEach { hRatingStack.addArrangedSubview($0) }
     }
     
-    public func setupConstraints() {
+    func setupConstraints() {
         NSLayoutConstraint.activate([
             hStack.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: margin),
             hStack.topAnchor.constraint(equalTo: contentView.topAnchor, constant: margin),
@@ -107,7 +107,7 @@ extension RestaurantItemCell: ViewCodeHelper {
         ])
     }
     
-    public func setupAdditionalConfiguration() {
+    func setupAdditionalConfiguration() {
         accessoryType = .disclosureIndicator
     }
 }

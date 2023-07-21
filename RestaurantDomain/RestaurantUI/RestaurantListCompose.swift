@@ -2,7 +2,7 @@ import UIKit
 import RestaurantDomain
 
 public final class RestaurantListCompose {
-    static public func compose(service: RestaurantLoader) -> RestaurantListViewController {
+    public static func compose(service: RestaurantLoader) -> UITableViewController {
         let decorator = MainQueueDispatchDecorator(decoratee: service)
         let presenter = RestaurantListPresenter()
         let interactor = RestaurantListInteractor(service: decorator, presenter: presenter)
