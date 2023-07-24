@@ -1,5 +1,9 @@
 import Foundation
 
+public protocol LocalRestaurantLoaderInsert {
+    func save(_ items: [RestaurantItem], completion: @escaping (Error?) -> Void)
+}
+
 public final class LocalRestaurantLoader {
     public let cache: CacheClient
     let cachePolicy: CachePolicy
@@ -9,16 +13,6 @@ public final class LocalRestaurantLoader {
         self.cache = cache
         self.cachePolicy = cachePolicy
         self.currentDate = currentDate
-    }
-    
-    func save(_ items: [RestaurantItem], completion: @escaping (Error?) -> Void) {
-        cache.delete { [weak self] error in
-            guard let self else { return }
-            guard let error = error else {
-                return self.saveOnCache(items, completion: completion)
-            }
-            completion(error)
-        }
     }
     
     func validateCache() {
@@ -38,6 +32,18 @@ public final class LocalRestaurantLoader {
     private func saveOnCache(_ items: [RestaurantItem], completion: @escaping (Error?) -> Void) {
         cache.save(items, timestamp: self.currentDate()) { [weak self] error in
             guard self != nil else { return }
+            completion(error)
+        }
+    }
+}
+
+extension LocalRestaurantLoader: LocalRestaurantLoaderInsert {
+    public func save(_ items: [RestaurantItem], completion: @escaping (Error?) -> Void) {
+        cache.delete { [weak self] error in
+            guard let self else { return }
+            guard let error = error else {
+                return self.saveOnCache(items, completion: completion)
+            }
             completion(error)
         }
     }

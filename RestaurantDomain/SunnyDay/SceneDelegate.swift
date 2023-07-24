@@ -9,22 +9,27 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         guard let _ = (scene as? UIWindowScene) else { return }
         
+        // RemoteService
         let session = URLSession(configuration: .ephemeral)
-        
-        // Online
         let network = NetworkService(session: session)
         let url = URL(string: "https://raw.githubusercontent.com/comitando/assets/main/api/restaurant_list_endpoint.json")!
         let remoteService = RemoteRestaurantLoader(url: url, networkClient: network)
         
-        // Local
+        // LocalService
         let fileManagerURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!.appending(path: "SunnyDay.store")
         let cache = CacheService(manegerURL: fileManagerURL)
         let localService = LocalRestaurantLoader(cache: cache) {
             return Date()
         }
         
+        // composite remote and local
         let compositeService = RestaurantLoaderCompositeRemoteAndLocal(main: remoteService, fallback: localService)
-        let controller = RestaurantListCompose.compose(service: compositeService)
+        
+        // Decorator side effects Service and insert cache
+        let decoratorService = RestaurantLoaderCacheDecorator(decoratee: compositeService, cache: localService)
+        
+        // UI Presentation
+        let controller = RestaurantListCompose.compose(service: decoratorService)
         let navigation = UINavigationController(rootViewController: controller)
         window?.rootViewController = navigation
     }
