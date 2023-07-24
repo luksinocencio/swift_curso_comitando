@@ -5,20 +5,34 @@ import RestaurantDomain
 final class RestaurantLoaderCacheDecoratorTests: XCTestCase {
     func test_decoratee_load_should_be_completion_success() {
         let items = [makeItem()]
-        let cache = LocalRestaurantLoaderInsertSpy()
         let result: RestaurantLoader.RestaurantResult = .success(items)
-        let sut = makeSUT(result: result, cache: cache)
+        let (sut, _) = makeSUT(result: result)
+        
+        assert(sut, completion: result)
+    }
+    
+    func test_decoratee_load_should_be_completion_error() {
+        let result: RestaurantLoader.RestaurantResult = .failure(.connectivity)
+        let (sut, cache) = makeSUT(result: result)
+        
+        sut.load { _ in }
+        XCTAssertTrue(cache.methodsCalled.isEmpty)
+    }
+    
+    func test_cache_insert_after_load_returned_success() {
+        let items = [makeItem()]
+        let result: RestaurantLoader.RestaurantResult = .success(items)
+        let (sut, cache) = makeSUT(result: result)
         
         assert(sut, completion: result)
         XCTAssertEqual(cache.methodsCalled, [.save(items)])
     }
     
-    func test_decoratee_load_should_be_completion_error() {
+    func test_cache_no_insert_load_returned_failure() {
         let result: RestaurantLoader.RestaurantResult = .failure(.connectivity)
-        let cache = LocalRestaurantLoaderInsertSpy()
-        let sut = makeSUT(result: result, cache: cache)
+        let (sut, cache) = makeSUT(result: result)
         
-        assert(sut, completion: result)
+        sut.load { _ in }
         XCTAssertTrue(cache.methodsCalled.isEmpty)
     }
 }
@@ -26,16 +40,16 @@ final class RestaurantLoaderCacheDecoratorTests: XCTestCase {
 extension RestaurantLoaderCacheDecoratorTests {
     private func makeSUT(
         result: RestaurantLoader.RestaurantResult,
-        cache: LocalRestaurantLoaderInsertSpy = .init(),
         file: StaticString = #file,
         line: UInt = #line
-    ) -> RestaurantLoaderCacheDecorator {
+    ) -> (sut: RestaurantLoaderCacheDecorator, cache: LocalRestaurantLoaderInsertSpy) {
+        let cache = LocalRestaurantLoaderInsertSpy()
         let service = RestaurantLoaderSpy(result: result)
         let sut = RestaurantLoaderCacheDecorator(decoratee: service, cache: cache)
         trackForMemoryLeaks(service)
         trackForMemoryLeaks(sut)
         
-        return sut
+        return (sut, cache)
     }
     
     private func assert(
