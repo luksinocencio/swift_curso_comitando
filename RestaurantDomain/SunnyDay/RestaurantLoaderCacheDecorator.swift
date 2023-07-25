@@ -10,6 +10,9 @@ final class RestaurantLoaderCacheDecorator {
         self.cache = cache
     }
     
+    private func save(_ items: [RestaurantItem]) {
+        cache.save(items) { _ in }
+    }
 }
 
 extension RestaurantLoaderCacheDecorator: RestaurantLoader {

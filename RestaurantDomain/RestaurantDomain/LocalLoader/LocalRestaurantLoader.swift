@@ -15,7 +15,7 @@ public final class LocalRestaurantLoader {
         self.currentDate = currentDate
     }
     
-    func validateCache() {
+    public func validateCache() {
         cache.load { [weak self] state in
             guard let self else { return }
             switch state {
