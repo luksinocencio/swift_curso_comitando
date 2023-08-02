@@ -14,7 +14,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     }()
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
-        guard let _ = (scene as? UIWindowScene) else { return }
+        guard let scene = (scene as? UIWindowScene) else { return }
         
         // RemoteService
 //        let session = URLSession(configuration: .ephemeral)
@@ -38,7 +38,10 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // UI Presentation
         let controller = RestaurantListCompose.compose(service: decoratorService)
         let navigation = UINavigationController(rootViewController: controller)
+        
+        window = UIWindow(windowScene: scene)
         window?.rootViewController = navigation
+        window?.makeKeyAndVisible()
     }
     
     private func remoteService() -> RemoteRestaurantLoader {

@@ -20,8 +20,6 @@
 		E86249C82A520E9A00539923 /* MainQueueDispatchDecorator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E86249C72A520E9A00539923 /* MainQueueDispatchDecorator.swift */; };
 		E86249D02A5210C000539923 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E86249CF2A5210C000539923 /* AppDelegate.swift */; };
 		E86249D22A5210C000539923 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E86249D12A5210C000539923 /* SceneDelegate.swift */; };
-		E86249D42A5210C000539923 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E86249D32A5210C000539923 /* ViewController.swift */; };
-		E86249D72A5210C000539923 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E86249D52A5210C000539923 /* Main.storyboard */; };
 		E86249D92A5210C200539923 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E86249D82A5210C200539923 /* Assets.xcassets */; };
 		E86249DC2A5210C200539923 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E86249DA2A5210C200539923 /* LaunchScreen.storyboard */; };
 		E86249E72A5210C200539923 /* RestaurantLoaderCompositeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E86249E62A5210C200539923 /* RestaurantLoaderCompositeTests.swift */; };
@@ -152,8 +150,6 @@
 		E86249CD2A5210C000539923 /* SunnyDay.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SunnyDay.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E86249CF2A5210C000539923 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E86249D12A5210C000539923 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		E86249D32A5210C000539923 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		E86249D62A5210C000539923 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		E86249D82A5210C200539923 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E86249DB2A5210C200539923 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E86249DD2A5210C200539923 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -294,8 +290,6 @@
 			children = (
 				E86249CF2A5210C000539923 /* AppDelegate.swift */,
 				E86249D12A5210C000539923 /* SceneDelegate.swift */,
-				E86249D32A5210C000539923 /* ViewController.swift */,
-				E86249D52A5210C000539923 /* Main.storyboard */,
 				E86249D82A5210C200539923 /* Assets.xcassets */,
 				E86249DA2A5210C200539923 /* LaunchScreen.storyboard */,
 				E86249DD2A5210C200539923 /* Info.plist */,
@@ -664,7 +658,6 @@
 			files = (
 				E86249DC2A5210C200539923 /* LaunchScreen.storyboard in Resources */,
 				E86249D92A5210C200539923 /* Assets.xcassets in Resources */,
-				E86249D72A5210C000539923 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -717,7 +710,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E86249D42A5210C000539923 /* ViewController.swift in Sources */,
 				E8455C9C2A6B00D1005CD8CA /* RestaurantLoaderCompositeRemoteAndLocal.swift in Sources */,
 				E86249D02A5210C000539923 /* AppDelegate.swift in Sources */,
 				E86249D22A5210C000539923 /* SceneDelegate.swift in Sources */,
@@ -840,14 +832,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		E86249D52A5210C000539923 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				E86249D62A5210C000539923 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		E86249DA2A5210C200539923 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -871,7 +855,6 @@
 				INFOPLIST_FILE = SunnyDay/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
@@ -904,7 +887,6 @@
 				INFOPLIST_FILE = SunnyDay/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
