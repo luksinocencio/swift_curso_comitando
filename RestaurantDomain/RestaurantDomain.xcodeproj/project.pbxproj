@@ -55,6 +55,7 @@
 		E8E04E2829D32F1100E532B5 /* RemoteRestaurantLoaderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8E04E2729D32F1100E532B5 /* RemoteRestaurantLoaderTests.swift */; };
 		E8E04E2929D32F1100E532B5 /* RestaurantDomain.h in Headers */ = {isa = PBXBuildFile; fileRef = E8E04E1D29D32F1000E532B5 /* RestaurantDomain.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		E8E04E3329D330BC00E532B5 /* RemoteRestaurantLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8E04E3229D330BC00E532B5 /* RemoteRestaurantLoader.swift */; };
+		E8F03A6B2A79F6EC00E92B0B /* SceneDelegateMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8F03A6A2A79F6EC00E92B0B /* SceneDelegateMock.swift */; };
 		E8F4F6C22A6F2DE1000BC2C4 /* RestaurantLoaderCacheDecorator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8F4F6C12A6F2DE1000BC2C4 /* RestaurantLoaderCacheDecorator.swift */; };
 /* End PBXBuildFile section */
 
@@ -182,6 +183,7 @@
 		E8E04E2229D32F1100E532B5 /* RestaurantDomainTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RestaurantDomainTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E8E04E2729D32F1100E532B5 /* RemoteRestaurantLoaderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteRestaurantLoaderTests.swift; sourceTree = "<group>"; };
 		E8E04E3229D330BC00E532B5 /* RemoteRestaurantLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteRestaurantLoader.swift; sourceTree = "<group>"; };
+		E8F03A6A2A79F6EC00E92B0B /* SceneDelegateMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegateMock.swift; sourceTree = "<group>"; };
 		E8F4F6C12A6F2DE1000BC2C4 /* RestaurantLoaderCacheDecorator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantLoaderCacheDecorator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -295,6 +297,7 @@
 				E86249DD2A5210C200539923 /* Info.plist */,
 				E8455C9B2A6B00D1005CD8CA /* RestaurantLoaderCompositeRemoteAndLocal.swift */,
 				E8F4F6C12A6F2DE1000BC2C4 /* RestaurantLoaderCacheDecorator.swift */,
+				E8F03A6A2A79F6EC00E92B0B /* SceneDelegateMock.swift */,
 			);
 			path = SunnyDay;
 			sourceTree = "<group>";
@@ -713,6 +716,7 @@
 				E8455C9C2A6B00D1005CD8CA /* RestaurantLoaderCompositeRemoteAndLocal.swift in Sources */,
 				E86249D02A5210C000539923 /* AppDelegate.swift in Sources */,
 				E86249D22A5210C000539923 /* SceneDelegate.swift in Sources */,
+				E8F03A6B2A79F6EC00E92B0B /* SceneDelegateMock.swift in Sources */,
 				E8F4F6C22A6F2DE1000BC2C4 /* RestaurantLoaderCacheDecorator.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

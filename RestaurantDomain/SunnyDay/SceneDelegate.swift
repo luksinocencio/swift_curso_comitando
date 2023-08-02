@@ -3,10 +3,10 @@ import RestaurantDomain
 import RestaurantUI
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
-
+    
     var window: UIWindow?
     
-    private lazy var fileManagerURL = {
+    lazy var fileManagerURL = {
         return FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!.appending(path: "SunnyDay.store")
     }()
     
@@ -20,12 +20,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         guard let scene = (scene as? UIWindowScene) else { return }
         
-        #if DEBUG
-        if CommandLine.arguments.contains("-reset") {
-            try? FileManager.default.removeItem(at: fileManagerURL)
-        }
-        #endif
-                
         // composite remote and local
         let compositeService = RestaurantLoaderCompositeRemoteAndLocal(main: makeRemoteLoader(), fallback: localService)
         
@@ -49,29 +43,14 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         return RemoteRestaurantLoader(url: url, networkClient: network)
     }
     
-    private func makeRemoteLoader() -> RestaurantLoader {
-        switch UserDefaults.standard.string(forKey: "connectivity") {
-            #if DEBUG
-            case "offline":
-                return RestaurantLoaderMock()
-            #endif
-            default:
-                return remoteService()
-        }
+    func makeRemoteLoader() -> RestaurantLoader {
+        return remoteService()
     }
-
+    
     func sceneDidBecomeActive(_ scene: UIScene) {
         localService.validateCache()
     }
 }
-
-#if DEBUG
-private final class RestaurantLoaderMock: RestaurantLoader {
-    func load(completion: @escaping (Result<[RestaurantDomain.RestaurantItem], RestaurantDomain.RestaurantResultError>) -> Void) {
-        completion(.failure(.connectivity))
-    }
-}
-#endif
 
 
 // RemoteService
