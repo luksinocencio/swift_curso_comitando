@@ -20,7 +20,7 @@ final class SunnyDayUITests: XCTestCase {
         online.launch()
         
         let offline = XCUIApplication()
-        offline.launchArguments = ["-connectivity", "offline"]
+                                        offline.launchArguments = ["-connectivity", "offline"]
         offline.launch()
         
         XCTAssertEqual(offline.cells.count, 10)
