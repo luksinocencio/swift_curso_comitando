@@ -1,16 +1,16 @@
 name: Comitando
 
 settings:
-  MARKETING_VERSION: '0.1.0'
+  MARKETING_VERSION: "0.1.0"
   SWIFT_VERSION: 5.7
-  VERSIONING_SYSTEM: 'apple-generic'
-  CLANG_ENABLE_OBJC_WEAK: 'YES'
+  VERSIONING_SYSTEM: "apple-generic"
+  CLANG_ENABLE_OBJC_WEAK: "YES"
   ARCHS: $(ARCHS_STANDARD)
 
 options:
-  xcodeVersion: '14.2'
+  xcodeVersion: "14.3.1"
   createIntermediateGroups: true
-  developmentLanguage: 'pt-BR'
+  developmentLanguage: "pt-BR"
   bundleIdPrefix: com.devmeist3r
   deploymentTarget:
     iOS: 13.0
@@ -40,13 +40,25 @@ targets:
       - iOSFramework
     dependencies:
       - target: RestaurantDomain_iOS
-
   RestaurantUITests:
     templates:
       - iOSFrameworkTests
     dependencies:
       - target: RestaurantUI
       - package: SnapshotTesting
+
+  SunnyDay:
+    templates:
+      - iOSApp
+    dependencies:
+      - target: RestaurantUI
+      - target: RestaurantDomain_iOS
+
+  SunnyDayTests:
+    templates:
+      - iOSAppTests
+    dependencies:
+      - target: SunnyDay
 
 targetTemplates:
   CrossPlatform:
@@ -82,8 +94,30 @@ targetTemplates:
     sources:
       - path: RestaurantDomain/${target_name}
         excludes:
-          - '__Snapshots__'
-          - '**/__Snapshots__'
+          - "__Snapshots__"
+          - "**/__Snapshots__"
+      - path: RestaurantDomain/XCTestCase/
+        createIntermediateGroups: false
+        type: group
+    info:
+      path: RestaurantDomain/${target_name}/Info.plist
+
+  iOSApp:
+    platform: iOS
+    type: application
+    sources:
+      - path: RestaurantDomain/${target_name}
+    settings:
+      INFOPLIST_FILE: RestaurantDomain/${target_name}/Info.plist
+
+  iOSAppTests:
+    platform: iOS
+    type: bundle.unit-test
+    sources:
+      - path: RestaurantDomain/${target_name}
+        excludes:
+          - "__Snapshots__"
+          - "**/__Snapshots__"
       - path: RestaurantDomain/XCTestCase/
         createIntermediateGroups: false
         type: group

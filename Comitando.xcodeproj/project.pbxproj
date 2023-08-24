@@ -3,25 +3,31 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 56;
+	objectVersion = 54;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0286862A58EF7C93E620097D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8263B17ACA12AC13115A7D14 /* AppDelegate.swift */; };
 		0661C2466449E649A47986FC /* RestaurantDomain.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9D3766A8D4DCC2315921490 /* RestaurantDomain.framework */; };
 		078E0DAABA4B7EDB1F73CC32 /* RestaurantItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D755267DCA277A2CD5D817E /* RestaurantItem.swift */; };
+		104294DA1B491A8E480BF926 /* RestaurantDomain.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9D3766A8D4DCC2315921490 /* RestaurantDomain.framework */; };
 		10EEABA66344CF97DF9953A3 /* CacheClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AC591BD29CD6596C20AF35F /* CacheClient.swift */; };
 		125B99305F49FA8E1DC6C04C /* RestaurantDomain.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D777C596D656FCE997F5ED10 /* RestaurantDomain.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		12FC83F8C649C593A3560E6B /* CacheClientSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 519F560D7C3451C6191E7B6A /* CacheClientSpy.swift */; };
+		1A7002F82C331FAF1A5BF892 /* XCTestCase+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8D2B63AF7B26A625AD42A4C /* XCTestCase+Helpers.swift */; };
 		1A8E2D74CEC155D8D55FEBC8 /* LocalRestaurantLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 301B604E1100DA32D56BDCF6 /* LocalRestaurantLoader.swift */; };
 		1C742AB770CF4B7744DB1199 /* RestaurantUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F85E6DF3161C04F7EEBE64D8 /* RestaurantUI.framework */; };
 		1D9627607C0EA9CEFC2A379C /* NetworkClientSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 142FC83CD54C6BC7825CAFE4 /* NetworkClientSpy.swift */; };
+		207DB2E4480F2AA217852C48 /* RestaurantLoaderCacheDecoratorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 898297ACA2A3F35101448BEF /* RestaurantLoaderCacheDecoratorTests.swift */; };
 		224572A2EF2352DC5829AD26 /* RestaurantUI.h in Headers */ = {isa = PBXBuildFile; fileRef = C5FB16E08B597550240CDCD1 /* RestaurantUI.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		22818E421A37BBC9158DE0B3 /* RestaurantUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F85E6DF3161C04F7EEBE64D8 /* RestaurantUI.framework */; };
 		22C8B4E1C6429B67AC81961F /* CacheServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9920B95E3716C622ADE90DA7 /* CacheServiceTests.swift */; };
 		25F00CB25B2AC6BD60DAA8FC /* NetworkClientSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 142FC83CD54C6BC7825CAFE4 /* NetworkClientSpy.swift */; };
 		274CAF33ECC353EA49762CE1 /* RestaurantItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D755267DCA277A2CD5D817E /* RestaurantItem.swift */; };
 		2A1B81245347F026E21A7D75 /* CachePolicy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B9CEF8BC57AAE96D75AD9B1 /* CachePolicy.swift */; };
 		31ABDDC001F5CE3389AC2753 /* RestaurantDomain.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D777C596D656FCE997F5ED10 /* RestaurantDomain.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		34FC661E19B3DBD8F6CF87F0 /* LocalRestaurantLoaderForValidateCacheCommandTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1741EA071FAA6DF531A5C14D /* LocalRestaurantLoaderForValidateCacheCommandTests.swift */; };
+		36BF0F199B08767B907238CF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FAC522E67D2DE378CF47318D /* LaunchScreen.storyboard */; };
 		3DF46A1F2BA6F860DBD8DB0B /* LocalRestaurantLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 301B604E1100DA32D56BDCF6 /* LocalRestaurantLoader.swift */; };
 		47DF9F36F2C411E7BB92258F /* XCTestCase+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8D2B63AF7B26A625AD42A4C /* XCTestCase+Helpers.swift */; };
 		4D63E3AD004BF45561FB8F4F /* URLSessionSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = D36127926F9188E9C2806839 /* URLSessionSpy.swift */; };
@@ -29,18 +35,23 @@
 		5151B239B416307E9CE50D0C /* CacheServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9920B95E3716C622ADE90DA7 /* CacheServiceTests.swift */; };
 		5C06BDCC5BA7AE9BE5B028AC /* RestaurantUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3847F1A97E939F9106E2DAEE /* RestaurantUITests.swift */; };
 		5E67609A5E85C25E73D1A042 /* LocalRestaurantLoaderForSaveTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D862E48057D389950E1C223 /* LocalRestaurantLoaderForSaveTests.swift */; };
+		60842D586F9B7A74FB81FE23 /* SceneDelegateMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = F221B1C46BB3FEE33E4E5004 /* SceneDelegateMock.swift */; };
 		6DF9A147902267355A929678 /* RestaurantLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72CB21EFFB6B265C8E4F390C /* RestaurantLoader.swift */; };
+		6E11DDD3E09BC2A3B6294B3E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B74D523291463950C2B3001E /* SceneDelegate.swift */; };
 		6F71294DA7938856784A6718 /* RemoteRestaurantLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 712237EB5FF6A7D2AA10A0FC /* RemoteRestaurantLoader.swift */; };
 		722C73AFC2019E74AFD55A95 /* XCTestCase+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DE845DA2C6D528C5C200C8D /* XCTestCase+Helpers.swift */; };
 		7341D04ED83194F72AA388CE /* XCTestCase+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DE845DA2C6D528C5C200C8D /* XCTestCase+Helpers.swift */; };
 		7960FE8ED1B8CB2643EA2937 /* XCTestCase+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8D2B63AF7B26A625AD42A4C /* XCTestCase+Helpers.swift */; };
 		7A8AD1641DD3907835ED3754 /* SnapshotTesting in Frameworks */ = {isa = PBXBuildFile; productRef = 76D58BBC71C3B9E7C82C0236 /* SnapshotTesting */; };
+		7B8CCAE71E77DA7305625493 /* RestaurantLoaderCacheDecorator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F207F3BF24A78B55A06311F0 /* RestaurantLoaderCacheDecorator.swift */; };
 		7BDD04CB5FC31D1F056B6023 /* NetworkClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14BBDD121315C0BB991DE034 /* NetworkClient.swift */; };
 		83AEC53D8F92B471758ECCC7 /* RestaurantListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B99EE0F67178F551C9E975D8 /* RestaurantListViewController.swift */; };
 		861A22C8805E567AB1BB60DF /* RestaurantListPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C8BE1D4BB3D7E725E8D3FC2 /* RestaurantListPresenter.swift */; };
+		9342C7130AB45C0BB51B126B /* RestaurantLoaderCompositeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E1E2DF817C28A518A94F68D /* RestaurantLoaderCompositeTests.swift */; };
 		95EC0A226806F2683FE64B06 /* NetworkServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64AE75CFD1FAE3CCDF7A4991 /* NetworkServiceTests.swift */; };
 		9798B66549E818E05B42B461 /* RestaurantDomain.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D777C596D656FCE997F5ED10 /* RestaurantDomain.framework */; };
 		982431DB8CFD36C615704C6F /* URLSessionSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = D36127926F9188E9C2806839 /* URLSessionSpy.swift */; };
+		9A05CBFB67CE2AA54156431D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 74C09FE6B5DE5E7F2604365B /* Assets.xcassets */; };
 		A7FC0C3695968140996764B1 /* RestaurantListCompose.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3471C6B72C45DA294C4B301 /* RestaurantListCompose.swift */; };
 		A822F7362371E8419A691DE5 /* MainQueueDispatchDecorator.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA5839981F448F47DF0BA48A /* MainQueueDispatchDecorator.swift */; };
 		B1A1399D38B41C5D95DAD80C /* CacheClientSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 519F560D7C3451C6191E7B6A /* CacheClientSpy.swift */; };
@@ -50,8 +61,10 @@
 		C45ED2465F283F630EB094DB /* RestaurantDomain.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D777C596D656FCE997F5ED10 /* RestaurantDomain.framework */; };
 		C6630F48854805AA974A24A6 /* RemoteRestaurantLoaderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63AE6E353FC483A9E84BB721 /* RemoteRestaurantLoaderTests.swift */; };
 		C6765928FC24A4C3F62F2734 /* RestaurantLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72CB21EFFB6B265C8E4F390C /* RestaurantLoader.swift */; };
+		CEAFBBF65B07A4A8B22A30F4 /* RestaurantLoaderCompositeRemoteAndLocal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31C96DDEE6750BA19CE41C40 /* RestaurantLoaderCompositeRemoteAndLocal.swift */; };
 		CFA45A0DB66F04B2F3C67A8C /* LocalRestaurantLoaderForLoadCommandTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0CAC0C470ED0238566CF0FA /* LocalRestaurantLoaderForLoadCommandTests.swift */; };
 		D08369D30DFC990FDDDE4D09 /* RestaurantListInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 765BD810C4E76DCD4B0CFBE6 /* RestaurantListInteractor.swift */; };
+		D2B6F6750BB9A6650B264CFA /* RestaurantDomain.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C9D3766A8D4DCC2315921490 /* RestaurantDomain.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		D724BBD866BE9E03097734D5 /* LocalRestaurantLoaderForLoadCommandTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0CAC0C470ED0238566CF0FA /* LocalRestaurantLoaderForLoadCommandTests.swift */; };
 		E1742E53420A2EDDCD218C00 /* LocalRestaurantLoaderForSaveTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D862E48057D389950E1C223 /* LocalRestaurantLoaderForSaveTests.swift */; };
 		E25453D217614E609A353462 /* RestaurantDomain.h in Headers */ = {isa = PBXBuildFile; fileRef = F637CC38E9A31D758FB20F3F /* RestaurantDomain.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -62,17 +75,39 @@
 		F422713EA35F08538C84E31D /* RestaurantUISnaphotTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 963AF5A33C2579F943DF4B96 /* RestaurantUISnaphotTests.swift */; };
 		F65CE832E08CB3788A5F936B /* CachePolicy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B9CEF8BC57AAE96D75AD9B1 /* CachePolicy.swift */; };
 		F673D444124C29A0D1BE4993 /* NetworkServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64AE75CFD1FAE3CCDF7A4991 /* NetworkServiceTests.swift */; };
+		F8010CB0500292152CE29C7C /* RestaurantUI.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = F85E6DF3161C04F7EEBE64D8 /* RestaurantUI.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		FB1E4150973CEB6E4BD41593 /* CacheClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AC591BD29CD6596C20AF35F /* CacheClient.swift */; };
 		FDD28CD2FD1BC44DA5C6DFDB /* RemoteRestaurantLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 712237EB5FF6A7D2AA10A0FC /* RemoteRestaurantLoader.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		2CFE92B0EDA91B1F0D422DEB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4EC1A8B1E0058108576C03D5 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 1A28D21D9C9C4305DC75CD46;
+			remoteInfo = SunnyDay;
+		};
 		55720A588E83F500CDC53B46 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 4EC1A8B1E0058108576C03D5 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 68669B79A749A1D38B4B3818;
 			remoteInfo = RestaurantDomain_macOS;
+		};
+		9645D426712AA5ED172EAA91 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4EC1A8B1E0058108576C03D5 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 181F0B10EC080D0577115B23;
+			remoteInfo = RestaurantUI;
+		};
+		B3B2C8D87722B4DA0FD62EB2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4EC1A8B1E0058108576C03D5 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 466685604691F33BFED8925C;
+			remoteInfo = RestaurantDomain_iOS;
 		};
 		B8B1DE7DB4BDF053924A5266 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -131,28 +166,49 @@
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		CA8C0962472FEF9C2C8E6C45 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				F8010CB0500292152CE29C7C /* RestaurantUI.framework in Embed Frameworks */,
+				D2B6F6750BB9A6650B264CFA /* RestaurantDomain.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		0A0A532F9B8A88BE5822D419 /* SunnyDayTests.xctest */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.cfbundle; path = SunnyDayTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		0ACEEAF4B9A7A5DFBBE370E7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		142FC83CD54C6BC7825CAFE4 /* NetworkClientSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkClientSpy.swift; sourceTree = "<group>"; };
 		14BBDD121315C0BB991DE034 /* NetworkClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkClient.swift; sourceTree = "<group>"; };
 		1741EA071FAA6DF531A5C14D /* LocalRestaurantLoaderForValidateCacheCommandTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalRestaurantLoaderForValidateCacheCommandTests.swift; sourceTree = "<group>"; };
+		1E1E2DF817C28A518A94F68D /* RestaurantLoaderCompositeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantLoaderCompositeTests.swift; sourceTree = "<group>"; };
 		2C715AF9674C0BAC885D9D66 /* RestaurantDomainTests.xctest */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.cfbundle; path = RestaurantDomainTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2D755267DCA277A2CD5D817E /* RestaurantItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantItem.swift; sourceTree = "<group>"; };
 		301B604E1100DA32D56BDCF6 /* LocalRestaurantLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalRestaurantLoader.swift; sourceTree = "<group>"; };
+		31C96DDEE6750BA19CE41C40 /* RestaurantLoaderCompositeRemoteAndLocal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantLoaderCompositeRemoteAndLocal.swift; sourceTree = "<group>"; };
+		352F1DF019CF5EAE11066AB8 /* SunnyDay.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = SunnyDay.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3847F1A97E939F9106E2DAEE /* RestaurantUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantUITests.swift; sourceTree = "<group>"; };
 		3B9CEF8BC57AAE96D75AD9B1 /* CachePolicy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CachePolicy.swift; sourceTree = "<group>"; };
 		519F560D7C3451C6191E7B6A /* CacheClientSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CacheClientSpy.swift; sourceTree = "<group>"; };
 		52105FF077045CEFB6E951DB /* RestaurantItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantItemCell.swift; sourceTree = "<group>"; };
 		53C4F6D0EF606E802D6D8C6E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
-		5871997D708FF50A6D41A46E /* RestaurantUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RestaurantUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		5871997D708FF50A6D41A46E /* RestaurantUITests.xctest */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.cfbundle; path = RestaurantUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5C8BE1D4BB3D7E725E8D3FC2 /* RestaurantListPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantListPresenter.swift; sourceTree = "<group>"; };
 		61A9F79CAA7ABB7B7958B37B /* RestaurantDomainTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RestaurantDomainTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		63AE6E353FC483A9E84BB721 /* RemoteRestaurantLoaderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteRestaurantLoaderTests.swift; sourceTree = "<group>"; };
 		64AE75CFD1FAE3CCDF7A4991 /* NetworkServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkServiceTests.swift; sourceTree = "<group>"; };
+		6BFA9D027AB6FEA95FF5630E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		712237EB5FF6A7D2AA10A0FC /* RemoteRestaurantLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteRestaurantLoader.swift; sourceTree = "<group>"; };
 		72CB21EFFB6B265C8E4F390C /* RestaurantLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantLoader.swift; sourceTree = "<group>"; };
+		74C09FE6B5DE5E7F2604365B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		765BD810C4E76DCD4B0CFBE6 /* RestaurantListInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantListInteractor.swift; sourceTree = "<group>"; };
+		8263B17ACA12AC13115A7D14 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		898297ACA2A3F35101448BEF /* RestaurantLoaderCacheDecoratorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantLoaderCacheDecoratorTests.swift; sourceTree = "<group>"; };
 		8DE845DA2C6D528C5C200C8D /* XCTestCase+Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "XCTestCase+Helpers.swift"; sourceTree = "<group>"; };
 		963AF5A33C2579F943DF4B96 /* RestaurantUISnaphotTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantUISnaphotTests.swift; sourceTree = "<group>"; };
 		9920B95E3716C622ADE90DA7 /* CacheServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CacheServiceTests.swift; sourceTree = "<group>"; };
@@ -164,6 +220,7 @@
 		AA5839981F448F47DF0BA48A /* MainQueueDispatchDecorator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainQueueDispatchDecorator.swift; sourceTree = "<group>"; };
 		ACBB84DD85910CD8507B9FC3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		B0CAC0C470ED0238566CF0FA /* LocalRestaurantLoaderForLoadCommandTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalRestaurantLoaderForLoadCommandTests.swift; sourceTree = "<group>"; };
+		B74D523291463950C2B3001E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		B99EE0F67178F551C9E975D8 /* RestaurantListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantListViewController.swift; sourceTree = "<group>"; };
 		C2B762E86955B372D40D2C6B /* RestaurantItemCellController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantItemCellController.swift; sourceTree = "<group>"; };
 		C578323D7097A501B4EC06FF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
@@ -171,11 +228,23 @@
 		C9D3766A8D4DCC2315921490 /* RestaurantDomain.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = RestaurantDomain.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D36127926F9188E9C2806839 /* URLSessionSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionSpy.swift; sourceTree = "<group>"; };
 		D777C596D656FCE997F5ED10 /* RestaurantDomain.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = RestaurantDomain.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E95A821A71C6E08B22E23FCE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		F207F3BF24A78B55A06311F0 /* RestaurantLoaderCacheDecorator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantLoaderCacheDecorator.swift; sourceTree = "<group>"; };
+		F221B1C46BB3FEE33E4E5004 /* SceneDelegateMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegateMock.swift; sourceTree = "<group>"; };
 		F637CC38E9A31D758FB20F3F /* RestaurantDomain.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RestaurantDomain.h; sourceTree = "<group>"; };
 		F85E6DF3161C04F7EEBE64D8 /* RestaurantUI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = RestaurantUI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		03F7A84A46E6DCC9E20137EB /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				22818E421A37BBC9158DE0B3 /* RestaurantUI.framework in Frameworks */,
+				104294DA1B491A8E480BF926 /* RestaurantDomain.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		48243266AF82C8815CF5A8AC /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -275,6 +344,8 @@
 				61A9F79CAA7ABB7B7958B37B /* RestaurantDomainTests.xctest */,
 				F85E6DF3161C04F7EEBE64D8 /* RestaurantUI.framework */,
 				5871997D708FF50A6D41A46E /* RestaurantUITests.xctest */,
+				352F1DF019CF5EAE11066AB8 /* SunnyDay.app */,
+				0A0A532F9B8A88BE5822D419 /* SunnyDayTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -306,6 +377,21 @@
 				B99EE0F67178F551C9E975D8 /* RestaurantListViewController.swift */,
 			);
 			path = Controllers;
+			sourceTree = "<group>";
+		};
+		81C5480135E88C619D1A197D /* SunnyDay */ = {
+			isa = PBXGroup;
+			children = (
+				8263B17ACA12AC13115A7D14 /* AppDelegate.swift */,
+				74C09FE6B5DE5E7F2604365B /* Assets.xcassets */,
+				E95A821A71C6E08B22E23FCE /* Info.plist */,
+				FAC522E67D2DE378CF47318D /* LaunchScreen.storyboard */,
+				F207F3BF24A78B55A06311F0 /* RestaurantLoaderCacheDecorator.swift */,
+				31C96DDEE6750BA19CE41C40 /* RestaurantLoaderCompositeRemoteAndLocal.swift */,
+				B74D523291463950C2B3001E /* SceneDelegate.swift */,
+				F221B1C46BB3FEE33E4E5004 /* SceneDelegateMock.swift */,
+			);
+			path = SunnyDay;
 			sourceTree = "<group>";
 		};
 		9B195F72E8D9B86533973DA2 = {
@@ -346,6 +432,8 @@
 				CCEB879FD3CF90A1B30E547D /* RestaurantDomainTests */,
 				080430BA40DDACC873424247 /* RestaurantUI */,
 				36CA69854AE15FA2AB8F7002 /* RestaurantUITests */,
+				81C5480135E88C619D1A197D /* SunnyDay */,
+				F44FB6D82BB694F8B51E0C1D /* SunnyDayTests */,
 			);
 			path = RestaurantDomain;
 			sourceTree = "<group>";
@@ -368,6 +456,16 @@
 				274A49F0D2668DFBFCA8FBBD /* RemoderLoader */,
 			);
 			path = RestaurantDomainTests;
+			sourceTree = "<group>";
+		};
+		F44FB6D82BB694F8B51E0C1D /* SunnyDayTests */ = {
+			isa = PBXGroup;
+			children = (
+				6BFA9D027AB6FEA95FF5630E /* Info.plist */,
+				898297ACA2A3F35101448BEF /* RestaurantLoaderCacheDecoratorTests.swift */,
+				1E1E2DF817C28A518A94F68D /* RestaurantLoaderCompositeTests.swift */,
+			);
+			path = SunnyDayTests;
 			sourceTree = "<group>";
 		};
 		FD54B37A43270D2F82F1BC13 /* Helpers */ = {
@@ -444,6 +542,26 @@
 			productReference = F85E6DF3161C04F7EEBE64D8 /* RestaurantUI.framework */;
 			productType = "com.apple.product-type.framework";
 		};
+		1A28D21D9C9C4305DC75CD46 /* SunnyDay */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5C3E682C5BCBB12B6CD47AC0 /* Build configuration list for PBXNativeTarget "SunnyDay" */;
+			buildPhases = (
+				C53A4983BC13251D3E4AF711 /* Sources */,
+				BA30A9DD3EF9CF655A0FB2D2 /* Resources */,
+				03F7A84A46E6DCC9E20137EB /* Frameworks */,
+				CA8C0962472FEF9C2C8E6C45 /* Embed Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				21D6D55C0201835AC126B097 /* PBXTargetDependency */,
+				D0C07514A27CD47623117880 /* PBXTargetDependency */,
+			);
+			name = SunnyDay;
+			productName = SunnyDay;
+			productReference = 352F1DF019CF5EAE11066AB8 /* SunnyDay.app */;
+			productType = "com.apple.product-type.application";
+		};
 		466685604691F33BFED8925C /* RestaurantDomain_iOS */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = C6556A3C70E07906EFCCF44C /* Build configuration list for PBXNativeTarget "RestaurantDomain_iOS" */;
@@ -515,6 +633,22 @@
 			productReference = 2C715AF9674C0BAC885D9D66 /* RestaurantDomainTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
+		E84E00D60830D17648F407C7 /* SunnyDayTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 0D44677298A324556FD51C40 /* Build configuration list for PBXNativeTarget "SunnyDayTests" */;
+			buildPhases = (
+				1EBF9223BA8CFE1B1B325563 /* Sources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				349A6D428F8B94EA3B0231B3 /* PBXTargetDependency */,
+			);
+			name = SunnyDayTests;
+			productName = SunnyDayTests;
+			productReference = 0A0A532F9B8A88BE5822D419 /* SunnyDayTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -523,6 +657,8 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = YES;
 				LastUpgradeCheck = 1420;
+				TargetAttributes = {
+				};
 			};
 			buildConfigurationList = CBC4E8C109ACFF5C7F35C53B /* Build configuration list for PBXProject "Comitando" */;
 			compatibilityVersion = "Xcode 14.0";
@@ -545,11 +681,35 @@
 				68669B79A749A1D38B4B3818 /* RestaurantDomain_macOS */,
 				181F0B10EC080D0577115B23 /* RestaurantUI */,
 				A492EC5C439597030515A204 /* RestaurantUITests */,
+				1A28D21D9C9C4305DC75CD46 /* SunnyDay */,
+				E84E00D60830D17648F407C7 /* SunnyDayTests */,
 			);
 		};
 /* End PBXProject section */
 
+/* Begin PBXResourcesBuildPhase section */
+		BA30A9DD3EF9CF655A0FB2D2 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9A05CBFB67CE2AA54156431D /* Assets.xcassets in Resources */,
+				36BF0F199B08767B907238CF /* LaunchScreen.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
+		1EBF9223BA8CFE1B1B325563 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				207DB2E4480F2AA217852C48 /* RestaurantLoaderCacheDecoratorTests.swift in Sources */,
+				9342C7130AB45C0BB51B126B /* RestaurantLoaderCompositeTests.swift in Sources */,
+				1A7002F82C331FAF1A5BF892 /* XCTestCase+Helpers.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		7ACCDD6201CC86E4E23BE636 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -638,13 +798,35 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		C53A4983BC13251D3E4AF711 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0286862A58EF7C93E620097D /* AppDelegate.swift in Sources */,
+				7B8CCAE71E77DA7305625493 /* RestaurantLoaderCacheDecorator.swift in Sources */,
+				CEAFBBF65B07A4A8B22A30F4 /* RestaurantLoaderCompositeRemoteAndLocal.swift in Sources */,
+				6E11DDD3E09BC2A3B6294B3E /* SceneDelegate.swift in Sources */,
+				60842D586F9B7A74FB81FE23 /* SceneDelegateMock.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		21D6D55C0201835AC126B097 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 181F0B10EC080D0577115B23 /* RestaurantUI */;
+			targetProxy = 9645D426712AA5ED172EAA91 /* PBXContainerItemProxy */;
+		};
 		2D897D1864AA7A6AFBC63F55 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 466685604691F33BFED8925C /* RestaurantDomain_iOS */;
 			targetProxy = BA639C7DC3404BFC7EFB1552 /* PBXContainerItemProxy */;
+		};
+		349A6D428F8B94EA3B0231B3 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 1A28D21D9C9C4305DC75CD46 /* SunnyDay */;
+			targetProxy = 2CFE92B0EDA91B1F0D422DEB /* PBXContainerItemProxy */;
 		};
 		4B0A2CDC334215670E569974 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
@@ -661,17 +843,31 @@
 			target = 181F0B10EC080D0577115B23 /* RestaurantUI */;
 			targetProxy = B8B1DE7DB4BDF053924A5266 /* PBXContainerItemProxy */;
 		};
+		D0C07514A27CD47623117880 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 466685604691F33BFED8925C /* RestaurantDomain_iOS */;
+			targetProxy = B3B2C8D87722B4DA0FD62EB2 /* PBXContainerItemProxy */;
+		};
 /* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		FAC522E67D2DE378CF47318D /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				0ACEEAF4B9A7A5DFBBE370E7 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		050221A50A6F459F474482F1 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_IDENTITY = "";
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
-				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = Y65JAZKR5L;
-				"DEVELOPMENT_TEAM[sdk=macosx*]" = Y65JAZKR5L;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
@@ -681,7 +877,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.devmeist3r.RestaurantDomain-iOS";
+				PRODUCT_BUNDLE_IDENTIFIER = "br.com.comitando.RestaurantDomain-iOS";
 				PRODUCT_NAME = RestaurantDomain;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
@@ -690,14 +886,29 @@
 			};
 			name = Debug;
 		};
+		14952AB2CCF64FBC21EDD759 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = RestaurantDomain/SunnyDayTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = br.com.comitando.SunnyDayTests;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SunnyDay.app/SunnyDay";
+			};
+			name = Debug;
+		};
 		1ECD7EE8C6CCF82363A5B68C /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_IDENTITY = "";
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
-				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = Y65JAZKR5L;
-				"DEVELOPMENT_TEAM[sdk=macosx*]" = Y65JAZKR5L;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
@@ -707,7 +918,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.devmeist3r.RestaurantDomain-iOS";
+				PRODUCT_BUNDLE_IDENTIFIER = "br.com.comitando.RestaurantDomain-iOS";
 				PRODUCT_NAME = RestaurantDomain;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
@@ -726,7 +937,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.devmeist3r.RestaurantDomainTests-iOS";
+				PRODUCT_BUNDLE_IDENTIFIER = "br.com.comitando.RestaurantDomainTests-iOS";
 				PRODUCT_NAME = RestaurantDomainTests;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -744,7 +955,7 @@
 					"@executable_path/../Frameworks",
 					"@loader_path/../Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.devmeist3r.RestaurantDomainTests-macOS";
+				PRODUCT_BUNDLE_IDENTIFIER = "br.com.comitando.RestaurantDomainTests-macOS";
 				PRODUCT_NAME = RestaurantDomainTests;
 				SDKROOT = macosx;
 			};
@@ -766,7 +977,7 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.devmeist3r.RestaurantDomain-macOS";
+				PRODUCT_BUNDLE_IDENTIFIER = "br.com.comitando.RestaurantDomain-macOS";
 				PRODUCT_NAME = RestaurantDomain;
 				SDKROOT = macosx;
 				SKIP_INSTALL = YES;
@@ -777,11 +988,9 @@
 		4A3FEC9E8EE590FCAB747F05 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "Apple Development";
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_IDENTITY = "";
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = Y65JAZKR5L;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
@@ -791,8 +1000,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.devmeist3r.RestaurantUI;
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PRODUCT_BUNDLE_IDENTIFIER = br.com.comitando.RestaurantUI;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -803,11 +1011,9 @@
 		63A826159740EDF9E3291230 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "Apple Development";
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_IDENTITY = "";
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = Y65JAZKR5L;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
@@ -817,8 +1023,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.devmeist3r.RestaurantUI;
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PRODUCT_BUNDLE_IDENTIFIER = br.com.comitando.RestaurantUI;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -826,18 +1031,49 @@
 			};
 			name = Debug;
 		};
+		68DDF490539D6581E15E1559 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				INFOPLIST_FILE = RestaurantDomain/SunnyDay/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = br.com.comitando.SunnyDay;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		6CC58A48F6473F72EB8E9E9A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				INFOPLIST_FILE = RestaurantDomain/SunnyDay/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = br.com.comitando.SunnyDay;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
 		81A0A97A05EC27F8726E5565 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
-				DEVELOPMENT_TEAM = Y65JAZKR5L;
 				INFOPLIST_FILE = RestaurantDomain/RestaurantUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.devmeist3r.RestaurantUITests;
+				PRODUCT_BUNDLE_IDENTIFIER = br.com.comitando.RestaurantUITests;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -847,14 +1083,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
-				DEVELOPMENT_TEAM = Y65JAZKR5L;
 				INFOPLIST_FILE = RestaurantDomain/RestaurantUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.devmeist3r.RestaurantUITests;
+				PRODUCT_BUNDLE_IDENTIFIER = br.com.comitando.RestaurantUITests;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -876,7 +1111,7 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.devmeist3r.RestaurantDomain-macOS";
+				PRODUCT_BUNDLE_IDENTIFIER = "br.com.comitando.RestaurantDomain-macOS";
 				PRODUCT_NAME = RestaurantDomain;
 				SDKROOT = macosx;
 				SKIP_INSTALL = YES;
@@ -895,7 +1130,7 @@
 					"@executable_path/../Frameworks",
 					"@loader_path/../Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.devmeist3r.RestaurantDomainTests-macOS";
+				PRODUCT_BUNDLE_IDENTIFIER = "br.com.comitando.RestaurantDomainTests-macOS";
 				PRODUCT_NAME = RestaurantDomainTests;
 				SDKROOT = macosx;
 			};
@@ -957,6 +1192,23 @@
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
 				SWIFT_VERSION = 5.7;
 				VERSIONING_SYSTEM = "apple-generic";
+			};
+			name = Release;
+		};
+		E480B10BAFFB717D8C9975F0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = RestaurantDomain/SunnyDayTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = br.com.comitando.SunnyDayTests;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SunnyDay.app/SunnyDay";
 			};
 			name = Release;
 		};
@@ -1036,7 +1288,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.devmeist3r.RestaurantDomainTests-iOS";
+				PRODUCT_BUNDLE_IDENTIFIER = "br.com.comitando.RestaurantDomainTests-iOS";
 				PRODUCT_NAME = RestaurantDomainTests;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -1051,6 +1303,24 @@
 			buildConfigurations = (
 				CA6672038B5D26234FEFF7A3 /* Debug */,
 				3947C68E26ABE0835A29B2D0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		0D44677298A324556FD51C40 /* Build configuration list for PBXNativeTarget "SunnyDayTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				14952AB2CCF64FBC21EDD759 /* Debug */,
+				E480B10BAFFB717D8C9975F0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		5C3E682C5BCBB12B6CD47AC0 /* Build configuration list for PBXNativeTarget "SunnyDay" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6CC58A48F6473F72EB8E9E9A /* Debug */,
+				68DDF490539D6581E15E1559 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Debug;

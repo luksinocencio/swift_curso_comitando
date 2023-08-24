@@ -7,7 +7,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     var window: UIWindow?
     
     lazy var fileManagerURL = {
-        return FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!.appending(path: "SunnyDay.store")
+        return FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!.appendingPathExtension("SunnyDay.store")
     }()
     
     private lazy var localService = {
