@@ -1,0 +1,91 @@
+name: Comitando
+
+settings:
+  MARKETING_VERSION: '0.1.0'
+  SWIFT_VERSION: 5.7
+  VERSIONING_SYSTEM: 'apple-generic'
+  CLANG_ENABLE_OBJC_WEAK: 'YES'
+  ARCHS: $(ARCHS_STANDARD)
+
+options:
+  xcodeVersion: '14.2'
+  createIntermediateGroups: true
+  developmentLanguage: 'pt-BR'
+  bundleIdPrefix: com.devmeist3r
+  deploymentTarget:
+    iOS: 13.0
+    macOS: 12.0
+
+configs:
+  Debug: debug
+  Release: release
+
+packages:
+  SnapshotTesting:
+    url: https://github.com/pointfreeco/swift-snapshot-testing
+    from: 1.10.0
+
+targets:
+  RestaurantDomain:
+    templates:
+      - CrossPlatform
+  RestaurantDomainTests:
+    templates:
+      - CrossPlatformTests
+    dependencies:
+      - target: RestaurantDomain_macOS
+
+  RestaurantUI:
+    templates:
+      - iOSFramework
+    dependencies:
+      - target: RestaurantDomain_iOS
+
+  RestaurantUITests:
+    templates:
+      - iOSFrameworkTests
+    dependencies:
+      - target: RestaurantUI
+      - package: SnapshotTesting
+
+targetTemplates:
+  CrossPlatform:
+    platform: [macOS, iOS]
+    type: framework
+    sources:
+      - path: RestaurantDomain/${target_name}
+    info:
+      path: RestaurantDomain/${target_name}/Info.plist
+
+  CrossPlatformTests:
+    platform: [macOS, iOS]
+    type: bundle.unit-test
+    sources:
+      - path: RestaurantDomain/${target_name}
+      - path: RestaurantDomain/XCTestCase/
+        createIntermediateGroups: false
+        type: group
+    info:
+      path: RestaurantDomain/${target_name}/Info.plist
+
+  iOSFramework:
+    platform: iOS
+    type: framework
+    sources:
+      - path: RestaurantDomain/${target_name}
+    info:
+      path: RestaurantDomain/${target_name}/Info.plist
+
+  iOSFrameworkTests:
+    platform: iOS
+    type: bundle.unit-test
+    sources:
+      - path: RestaurantDomain/${target_name}
+        excludes:
+          - '__Snapshots__'
+          - '**/__Snapshots__'
+      - path: RestaurantDomain/XCTestCase/
+        createIntermediateGroups: false
+        type: group
+    info:
+      path: RestaurantDomain/${target_name}/Info.plist
