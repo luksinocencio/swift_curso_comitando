@@ -26,25 +26,37 @@ packages:
     from: 1.10.0
 
 targets:
+  NetworkClient:
+    templates:
+      - CrossPlatform
+  NetworkClientTests:
+    templates:
+      - CrossPlatformTests
+    dependencies:
+      - target: NetworkClient_macOS
+
   RestaurantDomain:
     templates:
       - CrossPlatform
+    dependencies:
+      - target: NetworkClient_macOS
   RestaurantDomainTests:
     templates:
       - CrossPlatformTests
     dependencies:
       - target: RestaurantDomain_macOS
   RestaurantDomainIntegrationTests:
-      templates:
-        - CrossPlatformTests
-      dependencies:
-        - target: RestaurantDomain_macOS
+    templates:
+      - CrossPlatformTests
+    dependencies:
+      - target: RestaurantDomain_macOS
 
   RestaurantUI:
     templates:
       - iOSFramework
     dependencies:
       - target: RestaurantDomain_iOS
+      - target: NetworkClient_iOS
   RestaurantUITests:
     templates:
       - iOSFrameworkTests
@@ -58,26 +70,24 @@ targets:
     dependencies:
       - target: RestaurantUI
       - target: RestaurantDomain_iOS
-
   SunnyDayTests:
     templates:
       - iOSAppTests
     dependencies:
       - target: SunnyDay
-  
   SunnyDayUITests:
-    - templates:
+    templates:
       - iOSAppUITests
     dependencies:
       - target: SunnyDay
-  
+
 schemes:
   SunnyDay:
     build:
-      targets: 
+      targets:
         SunnyDay: [run, test, archive]
     archive:
-      config: release
+      config: Release
     run:
       config: Debug
     test:
@@ -88,12 +98,12 @@ schemes:
       targets:
         - name: SunnyDayTests
           randomExecutionOrder: true
-        - name:
+        - name: SunnyDayUITests
           randomExecutionOrder: true
-  
+
   RestaurantUI:
     build:
-      targets: 
+      targets:
         RestaurantUI: [run, test]
     run:
       config: Debug
@@ -105,7 +115,7 @@ schemes:
       targets:
         - name: RestaurantUITests
           randomExecutionOrder: true
-  
+
   RestaurantDomain:
     build:
       targets:
@@ -120,7 +130,22 @@ schemes:
       targets:
         - name: RestaurantDomainTests_macOS
           randomExecutionOrder: true
-  
+
+  NetworkClient:
+    build:
+      targets:
+        NetworkClient_macOS: [run, test]
+    run:
+      config: Debug
+    test:
+      config: Debug
+      gatherCoverageData: true
+      coverageTargets:
+        - NetworkClient_macOS
+      targets:
+        - name: NetworkClientTests_macOS
+          randomExecutionOrder: true
+
   IntegrationTests:
     build:
       targets:
@@ -132,7 +157,6 @@ schemes:
       targets:
         - name: RestaurantDomainIntegrationTests_macOS
           randomExecutionOrder: true
-
 
 targetTemplates:
   CrossPlatform:

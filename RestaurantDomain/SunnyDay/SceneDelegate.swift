@@ -1,4 +1,5 @@
 import UIKit
+import NetworkClient
 import RestaurantDomain
 import RestaurantUI
 

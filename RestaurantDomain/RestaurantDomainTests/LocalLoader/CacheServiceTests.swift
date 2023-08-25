@@ -178,7 +178,7 @@ extension CacheServiceTests {
     
     private func validManagerURL() -> URL {
         let path = type(of: self)
-        return FileManager.default.urls(for: .cachesDirectory, in: .userDomainMask).first!.appending(path: "\(path)")
+        return FileManager.default.urls(for: .cachesDirectory, in: .userDomainMask).first!.appendingPathExtension("\(path)")
     }
     
     private func invalidManagerURL() -> URL {
