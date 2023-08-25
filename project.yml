@@ -34,6 +34,11 @@ targets:
       - CrossPlatformTests
     dependencies:
       - target: RestaurantDomain_macOS
+  RestaurantDomainIntegrationTests:
+      templates:
+        - CrossPlatformTests
+      dependencies:
+        - target: RestaurantDomain_macOS
 
   RestaurantUI:
     templates:
@@ -65,6 +70,69 @@ targets:
       - iOSAppUITests
     dependencies:
       - target: SunnyDay
+  
+schemes:
+  SunnyDay:
+    build:
+      targets: 
+        SunnyDay: [run, test, archive]
+    archive:
+      config: release
+    run:
+      config: Debug
+    test:
+      config: Debug
+      gatherCoverageData: true
+      coverageTargets:
+        - SunnyDay
+      targets:
+        - name: SunnyDayTests
+          randomExecutionOrder: true
+        - name:
+          randomExecutionOrder: true
+  
+  RestaurantUI:
+    build:
+      targets: 
+        RestaurantUI: [run, test]
+    run:
+      config: Debug
+    test:
+      config: Debug
+      gatherCoverageData: true
+      coverageTargets:
+        - RestaurantUI
+      targets:
+        - name: RestaurantUITests
+          randomExecutionOrder: true
+  
+  RestaurantDomain:
+    build:
+      targets:
+        RestaurantDomain_macOS: [run, test]
+    run:
+      config: Debug
+    test:
+      config: Debug
+      gatherCoverageData: true
+      coverageTargets:
+        - RestaurantDomain_macOS
+      targets:
+        - name: RestaurantDomainTests_macOS
+          randomExecutionOrder: true
+  
+  IntegrationTests:
+    build:
+      targets:
+        RestaurantDomain_macOS: [run, test]
+    run:
+      config: Debug
+    test:
+      config: Debug
+      targets:
+        - name: RestaurantDomainIntegrationTests_macOS
+          randomExecutionOrder: true
+
 
 targetTemplates:
   CrossPlatform:
