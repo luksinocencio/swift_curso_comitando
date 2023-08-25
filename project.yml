@@ -59,6 +59,12 @@ targets:
       - iOSAppTests
     dependencies:
       - target: SunnyDay
+  
+  SunnyDayUITests:
+    - templates:
+      - iOSAppUITests
+    dependencies:
+      - target: SunnyDay
 
 targetTemplates:
   CrossPlatform:
@@ -121,5 +127,13 @@ targetTemplates:
       - path: RestaurantDomain/XCTestCase/
         createIntermediateGroups: false
         type: group
+    info:
+      path: RestaurantDomain/${target_name}/Info.plist
+
+  iOSAppUITests:
+    platform: iOS
+    type: bundle.ui-testing
+    sources:
+      - path: RestaurantDomain/${target_name}
     info:
       path: RestaurantDomain/${target_name}/Info.plist
