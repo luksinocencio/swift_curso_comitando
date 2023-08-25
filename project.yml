@@ -1,0 +1,231 @@
+name: Comitando
+
+settings:
+  MARKETING_VERSION: "0.1.0"
+  SWIFT_VERSION: 5.7
+  VERSIONING_SYSTEM: "apple-generic"
+  CLANG_ENABLE_OBJC_WEAK: "YES"
+  ARCHS: $(ARCHS_STANDARD)
+
+options:
+  xcodeVersion: "14.3.1"
+  createIntermediateGroups: true
+  developmentLanguage: "pt-BR"
+  bundleIdPrefix: com.devmeist3r
+  deploymentTarget:
+    iOS: 13.0
+    macOS: 12.0
+
+configs:
+  Debug: debug
+  Release: release
+
+packages:
+  SnapshotTesting:
+    url: https://github.com/pointfreeco/swift-snapshot-testing
+    from: 1.10.0
+
+targets:
+  NetworkClient:
+    templates:
+      - CrossPlatform
+  NetworkClientTests:
+    templates:
+      - CrossPlatformTests
+    dependencies:
+      - target: NetworkClient_macOS
+
+  RestaurantDomain:
+    templates:
+      - CrossPlatform
+    dependencies:
+      - target: NetworkClient_macOS
+  RestaurantDomainTests:
+    templates:
+      - CrossPlatformTests
+    dependencies:
+      - target: RestaurantDomain_macOS
+  RestaurantDomainIntegrationTests:
+    templates:
+      - CrossPlatformTests
+    dependencies:
+      - target: RestaurantDomain_macOS
+
+  RestaurantUI:
+    templates:
+      - iOSFramework
+    dependencies:
+      - target: RestaurantDomain_iOS
+      - target: NetworkClient_iOS
+  RestaurantUITests:
+    templates:
+      - iOSFrameworkTests
+    dependencies:
+      - target: RestaurantUI
+      - package: SnapshotTesting
+
+  SunnyDay:
+    templates:
+      - iOSApp
+    dependencies:
+      - target: RestaurantUI
+      - target: RestaurantDomain_iOS
+  SunnyDayTests:
+    templates:
+      - iOSAppTests
+    dependencies:
+      - target: SunnyDay
+  SunnyDayUITests:
+    templates:
+      - iOSAppUITests
+    dependencies:
+      - target: SunnyDay
+
+schemes:
+  SunnyDay:
+    build:
+      targets:
+        SunnyDay: [run, test, archive]
+    archive:
+      config: Release
+    run:
+      config: Debug
+    test:
+      config: Debug
+      gatherCoverageData: true
+      coverageTargets:
+        - SunnyDay
+      targets:
+        - name: SunnyDayTests
+          randomExecutionOrder: true
+        - name: SunnyDayUITests
+          randomExecutionOrder: true
+
+  RestaurantUI:
+    build:
+      targets:
+        RestaurantUI: [run, test]
+    run:
+      config: Debug
+    test:
+      config: Debug
+      gatherCoverageData: true
+      coverageTargets:
+        - RestaurantUI
+      targets:
+        - name: RestaurantUITests
+          randomExecutionOrder: true
+
+  RestaurantDomain:
+    build:
+      targets:
+        RestaurantDomain_macOS: [run, test]
+    run:
+      config: Debug
+    test:
+      config: Debug
+      gatherCoverageData: true
+      coverageTargets:
+        - RestaurantDomain_macOS
+      targets:
+        - name: RestaurantDomainTests_macOS
+          randomExecutionOrder: true
+
+  NetworkClient:
+    build:
+      targets:
+        NetworkClient_macOS: [run, test]
+    run:
+      config: Debug
+    test:
+      config: Debug
+      gatherCoverageData: true
+      coverageTargets:
+        - NetworkClient_macOS
+      targets:
+        - name: NetworkClientTests_macOS
+          randomExecutionOrder: true
+
+  IntegrationTests:
+    build:
+      targets:
+        RestaurantDomain_macOS: [run, test]
+    run:
+      config: Debug
+    test:
+      config: Debug
+      targets:
+        - name: RestaurantDomainIntegrationTests_macOS
+          randomExecutionOrder: true
+
+targetTemplates:
+  CrossPlatform:
+    platform: [macOS, iOS]
+    type: framework
+    sources:
+      - path: RestaurantDomain/${target_name}
+    info:
+      path: RestaurantDomain/${target_name}/Info.plist
+
+  CrossPlatformTests:
+    platform: [macOS, iOS]
+    type: bundle.unit-test
+    sources:
+      - path: RestaurantDomain/${target_name}
+      - path: RestaurantDomain/XCTestCase/
+        createIntermediateGroups: false
+        type: group
+    info:
+      path: RestaurantDomain/${target_name}/Info.plist
+
+  iOSFramework:
+    platform: iOS
+    type: framework
+    sources:
+      - path: RestaurantDomain/${target_name}
+    info:
+      path: RestaurantDomain/${target_name}/Info.plist
+
+  iOSFrameworkTests:
+    platform: iOS
+    type: bundle.unit-test
+    sources:
+      - path: RestaurantDomain/${target_name}
+        excludes:
+          - "__Snapshots__"
+          - "**/__Snapshots__"
+      - path: RestaurantDomain/XCTestCase/
+        createIntermediateGroups: false
+        type: group
+    info:
+      path: RestaurantDomain/${target_name}/Info.plist
+
+  iOSApp:
+    platform: iOS
+    type: application
+    sources:
+      - path: RestaurantDomain/${target_name}
+    settings:
+      INFOPLIST_FILE: RestaurantDomain/${target_name}/Info.plist
+
+  iOSAppTests:
+    platform: iOS
+    type: bundle.unit-test
+    sources:
+      - path: RestaurantDomain/${target_name}
+        excludes:
+          - "__Snapshots__"
+          - "**/__Snapshots__"
+      - path: RestaurantDomain/XCTestCase/
+        createIntermediateGroups: false
+        type: group
+    info:
+      path: RestaurantDomain/${target_name}/Info.plist
+
+  iOSAppUITests:
+    platform: iOS
+    type: bundle.ui-testing
+    sources:
+      - path: RestaurantDomain/${target_name}
+    info:
+      path: RestaurantDomain/${target_name}/Info.plist

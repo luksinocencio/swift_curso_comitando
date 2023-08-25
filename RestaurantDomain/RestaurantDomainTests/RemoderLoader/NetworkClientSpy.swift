@@ -1,5 +1,6 @@
 import XCTest
 @testable import RestaurantDomain
+@testable import NetworkClient
 
 final class NetworkClientSpy: NetworkClient {
     private(set) var urlRequests: [URL] = []

@@ -1,23 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "1430"
+   LastUpgradeVersion = "1431"
    version = "1.7">
    <BuildAction
       parallelizeBuildables = "YES"
-      buildImplicitDependencies = "YES">
+      buildImplicitDependencies = "YES"
+      runPostActionsOnFailure = "NO">
       <BuildActionEntries>
          <BuildActionEntry
             buildForTesting = "YES"
             buildForRunning = "YES"
-            buildForProfiling = "YES"
+            buildForProfiling = "NO"
             buildForArchiving = "YES"
-            buildForAnalyzing = "YES">
+            buildForAnalyzing = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "E86249CC2A5210C000539923"
+               BlueprintIdentifier = "1A28D21D9C9C4305DC75CD46"
                BuildableName = "SunnyDay.app"
                BlueprintName = "SunnyDay"
-               ReferencedContainer = "container:RestaurantDomain.xcodeproj">
+               ReferencedContainer = "container:Comitando.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -27,31 +28,52 @@
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       shouldUseLaunchSchemeArgsEnv = "YES"
-      shouldAutocreateTestPlan = "YES">
+      codeCoverageEnabled = "YES"
+      onlyGenerateCoverageForSpecifiedTargets = "YES">
+      <MacroExpansion>
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "1A28D21D9C9C4305DC75CD46"
+            BuildableName = "SunnyDay.app"
+            BlueprintName = "SunnyDay"
+            ReferencedContainer = "container:Comitando.xcodeproj">
+         </BuildableReference>
+      </MacroExpansion>
       <Testables>
          <TestableReference
             skipped = "NO"
-            parallelizable = "YES">
+            testExecutionOrdering = "random">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "E86249E12A5210C200539923"
+               BlueprintIdentifier = "E84E00D60830D17648F407C7"
                BuildableName = "SunnyDayTests.xctest"
                BlueprintName = "SunnyDayTests"
-               ReferencedContainer = "container:RestaurantDomain.xcodeproj">
+               ReferencedContainer = "container:Comitando.xcodeproj">
             </BuildableReference>
          </TestableReference>
          <TestableReference
             skipped = "NO"
-            parallelizable = "YES">
+            testExecutionOrdering = "random">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "E86249EB2A5210C200539923"
+               BlueprintIdentifier = "2973D9E0E155DF56DEE6170C"
                BuildableName = "SunnyDayUITests.xctest"
                BlueprintName = "SunnyDayUITests"
-               ReferencedContainer = "container:RestaurantDomain.xcodeproj">
+               ReferencedContainer = "container:Comitando.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
+      <CommandLineArguments>
+      </CommandLineArguments>
+      <CodeCoverageTargets>
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "1A28D21D9C9C4305DC75CD46"
+            BuildableName = "SunnyDay.app"
+            BlueprintName = "SunnyDay"
+            ReferencedContainer = "container:Comitando.xcodeproj">
+         </BuildableReference>
+      </CodeCoverageTargets>
    </TestAction>
    <LaunchAction
       buildConfiguration = "Debug"
@@ -67,12 +89,14 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "E86249CC2A5210C000539923"
+            BlueprintIdentifier = "1A28D21D9C9C4305DC75CD46"
             BuildableName = "SunnyDay.app"
             BlueprintName = "SunnyDay"
-            ReferencedContainer = "container:RestaurantDomain.xcodeproj">
+            ReferencedContainer = "container:Comitando.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
+      <CommandLineArguments>
+      </CommandLineArguments>
    </LaunchAction>
    <ProfileAction
       buildConfiguration = "Release"
@@ -84,10 +108,10 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "E86249CC2A5210C000539923"
+            BlueprintIdentifier = "1A28D21D9C9C4305DC75CD46"
             BuildableName = "SunnyDay.app"
             BlueprintName = "SunnyDay"
-            ReferencedContainer = "container:RestaurantDomain.xcodeproj">
+            ReferencedContainer = "container:Comitando.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

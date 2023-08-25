@@ -1,23 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "1430"
+   LastUpgradeVersion = "1431"
    version = "1.7">
    <BuildAction
       parallelizeBuildables = "YES"
-      buildImplicitDependencies = "YES">
+      buildImplicitDependencies = "YES"
+      runPostActionsOnFailure = "NO">
       <BuildActionEntries>
          <BuildActionEntry
             buildForTesting = "YES"
             buildForRunning = "YES"
-            buildForProfiling = "YES"
+            buildForProfiling = "NO"
             buildForArchiving = "NO"
             buildForAnalyzing = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "E8E04E1929D32F1000E532B5"
+               BlueprintIdentifier = "68669B79A749A1D38B4B3818"
                BuildableName = "RestaurantDomain.framework"
-               BlueprintName = "RestaurantDomain"
-               ReferencedContainer = "container:RestaurantDomain.xcodeproj">
+               BlueprintName = "RestaurantDomain_macOS"
+               ReferencedContainer = "container:Comitando.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -27,20 +28,31 @@
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       shouldUseLaunchSchemeArgsEnv = "YES"
-      shouldAutocreateTestPlan = "YES">
+      onlyGenerateCoverageForSpecifiedTargets = "NO">
+      <MacroExpansion>
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "68669B79A749A1D38B4B3818"
+            BuildableName = "RestaurantDomain.framework"
+            BlueprintName = "RestaurantDomain_macOS"
+            ReferencedContainer = "container:Comitando.xcodeproj">
+         </BuildableReference>
+      </MacroExpansion>
       <Testables>
          <TestableReference
             skipped = "NO"
-            parallelizable = "YES">
+            testExecutionOrdering = "random">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "E8D736C32A96F525002F811B"
+               BlueprintIdentifier = "5BF12BB0B19C087C1704D3AA"
                BuildableName = "RestaurantDomainIntegrationTests.xctest"
-               BlueprintName = "RestaurantDomainIntegrationTests"
-               ReferencedContainer = "container:RestaurantDomain.xcodeproj">
+               BlueprintName = "RestaurantDomainIntegrationTests_macOS"
+               ReferencedContainer = "container:Comitando.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
+      <CommandLineArguments>
+      </CommandLineArguments>
    </TestAction>
    <LaunchAction
       buildConfiguration = "Debug"
@@ -55,12 +67,14 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "E8E04E1929D32F1000E532B5"
+            BlueprintIdentifier = "68669B79A749A1D38B4B3818"
             BuildableName = "RestaurantDomain.framework"
-            BlueprintName = "RestaurantDomain"
-            ReferencedContainer = "container:RestaurantDomain.xcodeproj">
+            BlueprintName = "RestaurantDomain_macOS"
+            ReferencedContainer = "container:Comitando.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
+      <CommandLineArguments>
+      </CommandLineArguments>
    </LaunchAction>
    <ProfileAction
       buildConfiguration = "Release"
@@ -71,10 +85,10 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "E8E04E1929D32F1000E532B5"
+            BlueprintIdentifier = "68669B79A749A1D38B4B3818"
             BuildableName = "RestaurantDomain.framework"
-            BlueprintName = "RestaurantDomain"
-            ReferencedContainer = "container:RestaurantDomain.xcodeproj">
+            BlueprintName = "RestaurantDomain_macOS"
+            ReferencedContainer = "container:Comitando.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </ProfileAction>
